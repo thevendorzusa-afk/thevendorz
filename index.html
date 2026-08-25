@@ -6,40 +6,37 @@
 <title>The Vendorz — Simchat Torah Goodie Bags for Shuls</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  /* =====================================================================
-     CUSTOMIZE ME: this :root block is the entire color palette.
-     Change any hex value here and it updates everywhere on the site.
-     ===================================================================== */
   :root{
-    --navy: #FFF8F0;         /* page background — cream */
-    --navy-deep: #FFFFFF;    /* card backgrounds */
-    --paper: #FFF1E6;
-    --paper-dim: #6B5B66;    /* body copy on light background */
-    --brass: #FF6FA5;
-    --brass-light: #FF5C97;  /* candy pink accent — links, stamps, highlights */
-    --stamp-red: #4ED8B5;    /* mint accent, used sparingly */
-    --slate: #A8909B;        /* muted/secondary text */
-    --off-white: #3A2E39;    /* primary text — deep plum */
-    --line: rgba(58,46,57,0.12); /* soft hairline borders/dividers */
+    --kraft: #EDE1BE;
+    --card: #F9F2DE;
+    --ink: #382A1F;
+    --berry: #8C2F39;
+    --mustard: #C98A2C;
+    --candy-pink: #FF6B9D;
+    --candy-lime: #A4D65E;
+    --candy-mint: #5ECCC0;
+    --candy-purple: #D946A6;
+    --muted: #8A7860;
+    --line: rgba(56,42,31,0.22);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--navy);
-    color:var(--off-white);
-    font-family:'Nunito',sans-serif;
+    background:var(--kraft);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,.display{
-    font-family:'Baloo 2',cursive;
-    font-weight:600;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
     letter-spacing:-0.01em;
   }
   .mono{
-    font-family:'Nunito',sans-serif;
+    font-family:'Space Mono',monospace;
     letter-spacing:0.02em;
   }
   a{color:inherit;}
@@ -49,296 +46,295 @@
     padding:0 32px;
   }
 
-  /* ---- Header / logo / nav ---- */
   header{
     position:sticky;
     top:0;
     z-index:50;
-    background:var(--navy);
-    border-bottom:1px solid var(--line);
+    background:var(--kraft);
+    border-bottom:3px solid var(--berry);
+    box-shadow:0 2px 8px rgba(56,42,31,0.06);
   }
   .header-inner{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:20px 32px;
+    padding:18px 32px;
     max-width:1120px;
     margin:0 auto;
   }
-  /* CUSTOMIZE ME: logo slot.
-     To drop in a real logo image, replace the contents of .logo-slot with:
-     <img src="your-logo.png" alt="The Vendorz" style="height:36px;display:block;">
-     and delete the placeholder <span> + dashed border below. */
   .logo-slot{
     display:flex;
     align-items:center;
     gap:12px;
   }
   .logo-placeholder{
-    width:36px;
-    height:36px;
-    border:1.5px dashed var(--brass-light);
-    border-radius:50%;
+    width:38px;
+    height:26px;
+    background:linear-gradient(135deg, var(--mustard) 0%, var(--candy-pink) 100%);
+    border-radius:2px 9px 2px 2px;
+    transform:rotate(-6deg);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-family:'Nunito',sans-serif;
-    font-size:0.55rem;
-    color:var(--brass-light);
+    font-family:'Space Mono',monospace;
+    font-size:0.45rem;
+    color:white;
     text-transform:uppercase;
     flex-shrink:0;
+    position:relative;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .logo-placeholder::after{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:50%;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    transform:translateY(-50%);
+    box-shadow:0 0 0 1px var(--ink);
   }
   .brand{
-    font-family:'Baloo 2',cursive;
-    font-weight:700;
-    font-size:1.3rem;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:1.25rem;
     display:flex;
     align-items:baseline;
     gap:8px;
   }
   .brand .mark{
-    color:var(--brass-light);
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
   }
   nav.tabs{
     display:flex;
     gap:2px;
   }
   nav.tabs a{
-    font-family:'Nunito',sans-serif;
-    font-size:0.72rem;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
     text-transform:uppercase;
-    letter-spacing:0.08em;
+    letter-spacing:0.06em;
     text-decoration:none;
-    color:var(--slate);
-    padding:10px 16px;
-    border:1px solid transparent;
-    border-bottom:none;
-    transition:color .2s ease, border-color .2s ease;
+    color:var(--muted);
+    padding:10px 14px;
+    transition:color .15s ease;
+    border-radius:3px;
   }
   nav.tabs a:hover{
-    color:var(--off-white);
-    border-color:var(--line);
+    color:var(--candy-pink);
+    background:rgba(255,107,157,0.1);
   }
   @media (max-width:720px){
     nav.tabs{display:none;}
   }
 
-  /* ---- Hero ---- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border-radius:8px;
+    transition:all .2s ease;
+    font-weight:700;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    color:white;
+    border:2px solid transparent;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
+  }
+  .btn-primary:active{ transform:scale(0.97); }
+  .btn-ghost{
+    color:var(--ink);
+    border:2px solid var(--candy-pink);
+    background:transparent;
+  }
+  .btn-ghost:hover{ 
+    background:var(--candy-pink);
+    color:white;
+    transform:translateY(-2px);
+  }
+  .btn-ghost:active{ transform:scale(0.97); }
+
   .hero{
-    padding:96px 32px 80px;
-    border-bottom:1px solid var(--line);
+    padding:88px 32px 64px;
+    border-bottom:2px dashed var(--candy-lime);
     position:relative;
     overflow:hidden;
+  }
+  .hero::before{
+    content:"🍭 🍬 🍭 🍬 🍭 🍬 🍭 🍬 🍭";
+    position:absolute;
+    top:10%;
+    right:5%;
+    font-size:2rem;
+    opacity:0.15;
+    animation:float 6s ease-in-out infinite;
+  }
+  .hero::after{
+    content:"🎉 🎊 🎉 🎊 🎉";
+    position:absolute;
+    bottom:10%;
+    left:5%;
+    font-size:2.5rem;
+    opacity:0.15;
+    animation:float 8s ease-in-out infinite reverse;
+  }
+  @keyframes float {
+    0%, 100% { transform:translateY(0px); }
+    50% { transform:translateY(-20px); }
   }
   .hero-inner{
     max-width:1120px;
     margin:0 auto;
     position:relative;
+    z-index:1;
   }
   .eyebrow{
-    font-family:'Nunito',sans-serif;
+    font-family:'Space Mono',monospace;
     font-size:0.75rem;
     text-transform:uppercase;
-    letter-spacing:0.16em;
-    color:var(--brass-light);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:28px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:24px;
-    height:1px;
-    background:var(--brass-light);
-    display:inline-block;
+    letter-spacing:0.1em;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    margin-bottom:22px;
+    font-weight:700;
   }
   .hero h1{
-    font-size:clamp(2.6rem, 6vw, 4.6rem);
-    line-height:1.02;
-    margin:0 0 28px;
+    font-size:clamp(2.5rem, 5.6vw, 4.2rem);
+    line-height:1.04;
+    margin:0 0 26px;
     max-width:16ch;
   }
   .hero h1 em{
-    font-style:italic;
-    color:var(--brass-light);
+    font-style:normal;
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
   }
   .hero p.lede{
-    font-size:1.15rem;
+    font-size:1.1rem;
     line-height:1.6;
-    color:var(--paper-dim);
+    color:var(--muted);
     max-width:46ch;
-    margin:0 0 40px;
+    margin:0 0 32px;
   }
   .hero-actions{
     display:flex;
-    gap:16px;
+    gap:14px;
     flex-wrap:wrap;
     align-items:center;
   }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:14px 26px;
-    font-family:'Nunito',sans-serif;
-    font-size:0.8rem;
+  .hero-facts{
+    margin-top:44px;
+    padding-top:24px;
+    border-top:2px solid var(--candy-mint);
+    border-bottom:2px solid var(--candy-lime);
+    padding-bottom:24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
     text-transform:uppercase;
-    letter-spacing:0.06em;
-    text-decoration:none;
-    border-radius:999px;
-    transition:transform .15s ease, background .2s ease;
-  }
-  .btn-primary{
-    background:var(--brass-light);
-    color:var(--navy-deep);
-    font-weight:600;
-  }
-  .btn-primary:hover{transform:translateY(-2px);}
-  .btn-ghost{
-    color:var(--off-white);
-    border:1px solid var(--line);
-  }
-  .btn-ghost:hover{border-color:var(--brass-light); color:var(--brass-light);}
-
-  .ledger-bg{
-    position:absolute;
-    right:-60px;
-    top:-40px;
-    bottom:-40px;
-    width:320px;
-    background-image: repeating-linear-gradient(45deg, var(--brass-light) 0px, var(--brass-light) 14px, transparent 14px, transparent 28px, var(--stamp-red) 28px, var(--stamp-red) 42px, transparent 42px, transparent 56px);
-    opacity:0.12;
-    pointer-events:none;
-    border-radius:50%;
-  }
-  @media (max-width:900px){ .ledger-bg{display:none;} }
-
-  .stat-row{
+    letter-spacing:0.03em;
+    color:var(--muted);
     display:flex;
-    gap:48px;
-    margin-top:64px;
     flex-wrap:wrap;
-    padding-top:36px;
-    border-top:1px solid var(--line);
+    gap:10px 14px;
+    background:linear-gradient(90deg, rgba(94,204,192,0.05) 0%, rgba(164,214,94,0.05) 100%);
+    padding-left:16px;
+    padding-right:16px;
+    border-radius:8px;
   }
-  .stat-row .stat .num{
-    font-family:'Baloo 2',cursive;
-    font-size:2.1rem;
-    color:var(--brass-light);
-    display:block;
-  }
-  .stat-row .stat .label{
-    font-family:'Nunito',sans-serif;
-    font-size:0.72rem;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--slate);
+  .hero-facts strong{ 
+    color:var(--ink);
+    font-weight:700;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-lime));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
   }
 
-  /* ---- Section headers ---- */
   .section{
-    padding:88px 32px;
-    border-bottom:1px solid var(--line);
+    padding:80px 32px;
+    border-bottom:2px dashed var(--line);
+    position:relative;
   }
   .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:24px;
-    margin-bottom:56px;
-    flex-wrap:wrap;
+    margin-bottom:48px;
   }
   .section-head h2{
-    font-size:clamp(1.8rem,3.4vw,2.6rem);
+    font-size:clamp(1.7rem,3vw,2.4rem);
     margin:0;
   }
-  .section-num{
-    font-family:'Nunito',sans-serif;
-    font-size:0.78rem;
-    color:var(--slate);
+  .section-eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
     text-transform:uppercase;
-    letter-spacing:0.1em;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+    display:block;
+    font-weight:700;
   }
   .section-desc{
-    color:var(--paper-dim);
+    color:var(--muted);
     max-width:52ch;
     line-height:1.6;
     margin-top:12px;
   }
 
-  /* ---- This year's collection: catalog entries ---- */
-  .catalog{
-    border-top:1px solid var(--line);
-  }
-  .catalog-entry{
-    display:grid;
-    grid-template-columns:90px 1.4fr 1.6fr;
-    gap:28px;
-    align-items:start;
-    padding:28px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .catalog-entry .code{
-    font-family:'Nunito',sans-serif;
-    color:var(--brass-light);
-    font-size:0.85rem;
-    padding-top:4px;
-    line-height:1.4;
-  }
-  .catalog-entry h3{
-    font-size:1.35rem;
-    margin:0 0 6px;
-  }
-  .catalog-entry p{
-    color:var(--paper-dim);
-    line-height:1.6;
-    margin:0;
-    font-size:0.96rem;
-  }
-  .catalog-entry .tags{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:12px;
-  }
-  .catalog-entry .tags span{
-    font-family:'Nunito',sans-serif;
-    font-size:0.68rem;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:var(--slate);
-    border:1px solid var(--line);
-    padding:4px 9px;
-    border-radius:999px;
-  }
-  @media (max-width:720px){
-    .catalog-entry{grid-template-columns:56px 1fr; row-gap:8px;}
-    .catalog-entry p{grid-column:2;}
-    .catalog-entry .tags{grid-column:2;}
-  }
-
-  /* ---- Pricing: stamped order tiers ---- */
   .tiers{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    gap:22px;
   }
   @media (max-width:900px){ .tiers{grid-template-columns:1fr;} }
   .tier{
-    background:var(--navy-deep);
+    background:var(--card);
     border:2px solid var(--line);
-    border-radius:24px;
-    padding:36px 30px 30px;
+    border-radius:12px;
+    padding:32px 26px 26px;
     position:relative;
     display:flex;
     flex-direction:column;
-    gap:20px;
-    box-shadow:0 8px 24px rgba(58,46,57,0.06);
+    gap:18px;
+    box-shadow:0 8px 24px rgba(56,42,31,0.08);
+    transition:all .3s ease;
+  }
+  .tier:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(56,42,31,0.12);
+  }
+  .tier::before{
+    content:"";
+    display:block;
+    height:8px;
+    margin:-32px -26px 4px;
+    background:linear-gradient(90deg, var(--candy-pink), var(--candy-purple), var(--candy-mint));
+    border-radius:12px 12px 0 0;
   }
   .tier.featured{
-    border-color:var(--brass-light);
-    background:linear-gradient(180deg, rgba(255,92,151,0.08), var(--navy-deep) 60%);
+    border-color:var(--candy-pink);
+    border-width:3px;
   }
   .tier-head{
     display:flex;
@@ -346,52 +342,59 @@
     align-items:flex-start;
   }
   .tier-name{
-    font-size:1.3rem;
+    font-size:1.25rem;
     margin:0;
   }
   .tier-sub{
-    font-family:'Nunito',sans-serif;
-    font-size:0.72rem;
-    color:var(--slate);
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
     text-transform:uppercase;
     margin-top:4px;
     display:block;
   }
   .stamp{
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    border:1.5px dashed var(--brass-light);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transform:rotate(-8deg);
-    flex-shrink:0;
-    font-family:'Nunito',sans-serif;
+    padding:8px 12px;
+    border:2px solid var(--candy-pink);
+    border-radius:6px;
+    color:var(--candy-pink);
+    font-family:'Space Mono',monospace;
     font-size:0.5rem;
     text-transform:uppercase;
     letter-spacing:0.03em;
-    color:var(--brass-light);
     text-align:center;
-    line-height:1.15;
-    padding:4px;
+    line-height:1.2;
+    transform:rotate(-5deg);
+    flex-shrink:0;
+    font-weight:700;
+    background:rgba(255,107,157,0.08);
   }
-  .tier:not(.featured) .stamp{
-    border-color:var(--slate);
-    color:var(--slate);
-    opacity:0.7;
+  .tier.featured .stamp{
+    border-color:var(--candy-purple);
+    color:var(--candy-purple);
+    background:rgba(217,70,166,0.08);
+    transform:rotate(4deg);
   }
   .price{
-    font-family:'Baloo 2',cursive;
-    font-size:2.3rem;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    font-size:2.1rem;
     display:flex;
     align-items:baseline;
     gap:6px;
   }
+  .price{
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
   .price .per{
-    font-family:'Nunito',sans-serif;
-    font-size:0.78rem;
-    color:var(--slate);
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    color:var(--muted);
+    background:none;
+    -webkit-text-fill-color:unset;
   }
   .tier ul{
     list-style:none;
@@ -399,132 +402,131 @@
     margin:0;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:10px;
     flex-grow:1;
   }
   .tier ul li{
     font-size:0.92rem;
-    color:var(--paper-dim);
-    padding-left:20px;
+    color:var(--ink);
+    padding-left:18px;
     position:relative;
     line-height:1.5;
   }
   .tier ul li::before{
-    content:"—";
+    content:"✨";
     position:absolute;
     left:0;
-    color:var(--brass-light);
+    color:var(--candy-pink);
+    font-size:0.8rem;
   }
-  .tier .btn{ text-align:center; justify-content:center; margin-top:8px;}
+  .tier .btn{ text-align:center; justify-content:center; margin-top:6px;}
 
-  /* ---- About ---- */
   .about-grid{
     display:grid;
     grid-template-columns:1.1fr 0.9fr;
-    gap:64px;
+    gap:56px;
   }
   @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
   .about-grid p{
-    line-height:1.75;
-    color:var(--paper-dim);
-    font-size:1.02rem;
+    line-height:1.7;
+    color:var(--ink);
+    font-size:1rem;
   }
-  .about-grid p + p{ margin-top:18px; }
+  .about-grid p + p{ margin-top:16px; }
   .principles{
     display:flex;
     flex-direction:column;
     gap:0;
-    border-top:1px solid var(--line);
+    border-top:2px solid var(--candy-mint);
   }
   .principle{
-    padding:20px 0;
-    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    border-bottom:2px solid var(--candy-mint);
   }
   .principle .mono{
-    font-size:0.7rem;
-    color:var(--brass-light);
+    font-size:0.68rem;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
     text-transform:uppercase;
+    font-weight:700;
   }
   .principle h4{
     margin:6px 0 4px;
-    font-family:'Baloo 2',cursive;
-    font-weight:600;
-    font-size:1.05rem;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    font-size:1.02rem;
   }
   .principle p{
     margin:0;
-    font-size:0.88rem;
-    color:var(--slate);
+    font-size:0.86rem;
+    color:var(--muted);
     line-height:1.5;
   }
 
-  /* ---- Timeline strip ---- */
-  .calendar{
-    display:flex;
-    gap:0;
-    overflow-x:auto;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    margin-top:64px;
-  }
-  .calendar-item{
-    flex:1 0 150px;
-    padding:20px 22px;
-    border-right:1px solid var(--line);
-  }
-  .calendar-item:last-child{ border-right:none; }
-  .calendar-item .when{
-    font-family:'Nunito',sans-serif;
-    font-size:0.68rem;
-    text-transform:uppercase;
-    color:var(--brass-light);
-    letter-spacing:0.05em;
-  }
-  .calendar-item .what{
-    font-family:'Baloo 2',cursive;
-    font-size:1.05rem;
-    margin-top:6px;
-  }
-
-  /* ---- Contact / Footer ---- */
   .contact{
     text-align:center;
-    padding:100px 32px;
+    padding:88px 32px;
+    background:linear-gradient(135deg, rgba(255,107,157,0.08) 0%, rgba(164,214,94,0.08) 100%);
   }
   .contact h2{
-    font-size:clamp(2rem,4vw,3rem);
+    font-size:clamp(1.9rem,3.6vw,2.8rem);
     max-width:18ch;
-    margin:0 auto 20px;
+    margin:0 auto 18px;
+  }
+  .contact h2{
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
   }
   .contact p{
-    color:var(--paper-dim);
+    color:var(--muted);
     max-width:44ch;
-    margin:0 auto 36px;
+    margin:0 auto 32px;
     line-height:1.6;
   }
   footer{
-    padding:32px;
+    padding:28px 32px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:12px;
-    font-family:'Nunito',sans-serif;
-    font-size:0.72rem;
-    color:var(--slate);
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
     text-transform:uppercase;
-    letter-spacing:0.05em;
+    letter-spacing:0.04em;
+    border-top:3px solid var(--berry);
+    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+  }
+  .footer-contact{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .footer-contact a{
+    text-decoration:none;
+    transition:all .15s ease;
+    color:var(--muted);
+  }
+  .footer-contact a:hover{
+    color:var(--candy-pink);
+    font-weight:700;
   }
 
   @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; scroll-behavior:auto !important; }
+    *{ transition:none !important; scroll-behavior:auto !important; animation:none !important; }
   }
 
-  ::selection{ background:var(--brass-light); color:var(--navy-deep); }
+  ::selection{ background:var(--candy-pink); color:white; }
 
   :focus-visible{
-    outline:2px solid var(--brass-light);
+    outline:2px solid var(--candy-pink);
     outline-offset:3px;
+    border-radius:3px;
   }
 </style>
 </head>
@@ -533,95 +535,82 @@
 <header>
   <div class="header-inner">
     <div class="logo-slot">
-      <!-- CUSTOMIZE ME: swap this placeholder for <img src="your-logo.png" alt="The Vendorz"> -->
       <div class="logo-placeholder">LOGO</div>
       <div class="brand">THE <span class="mark">VENDORZ</span></div>
     </div>
     <nav class="tabs">
-      <a href="bags.html">01 · This Year's Bags</a>
-      <a href="#about">02 · About</a>
-      <a href="#contact">03 · Contact</a>
+      <a href="bags.html">This Year's Bags</a>
+      <a href="#about">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <a href="mailto:hello@thevendorz.com?subject=Quote%20Request" class="btn btn-ghost" style="padding:9px 18px;">Get a Quote</a>
+    <a href="contact.html" class="btn btn-ghost" style="padding:8px 16px;">Get a Quote</a>
   </div>
 </header>
 
-<!-- CUSTOMIZE ME: hero headline, subhead, and stats -->
 <section class="hero">
-  <div class="ledger-bg"></div>
   <div class="hero-inner">
-    <div class="eyebrow">🍬 This year's collection — Servicing Brooklyn</div>
-    <h1>Simchat Torah goodie bags,<br>ready for your<br><em>whole</em> shul.</h1>
+    <div class="eyebrow">✨ This year's collection — servicing Brooklyn ✨</div>
+    <h1>Simchat Torah goodie bags,<br>ready for your <em>whole</em> shul.</h1>
     <p class="lede">The Vendorz packs and delivers Simchat Torah goodie bags for shuls across Brooklyn — treats and a little something for every kid dancing with the Torah this year.</p>
     <div class="hero-actions">
-      <a href="bags.html" class="btn btn-primary">See this year's bags →</a>
-      <a href="mailto:hello@thevendorz.com?subject=Bulk%20Quote%20Request" class="btn btn-ghost">Get a bulk quote</a>
+      <a href="bags.html" class="btn btn-primary">See This Year's Bags</a>
+      <a href="contact.html" class="btn btn-ghost">Get a Bulk Quote</a>
     </div>
-    <div class="stat-row">
-      <!-- CUSTOMIZE ME: swap any of these three stats for real numbers -->
-      <div class="stat"><span class="num">50–200+</span><span class="label">Bags Per Order</span></div>
-      <div class="stat"><span class="num">Tzom Gedaliah</span><span class="label">Order Deadline</span></div>
-      <div class="stat"><span class="num">Free</span><span class="label">Delivery on 100+ Bags</span></div>
+    <div class="hero-facts">
+      <span><strong>50–200+</strong> bags per order</span>
+      <span>/</span>
+      <span><strong>free</strong> delivery on 100+ bags</span>
     </div>
   </div>
 </section>
 
-<!-- CUSTOMIZE ME: about copy and the three principle blurbs -->
-<section class="section" id="about" style="border-bottom:1px solid var(--line);">
+<section class="section" id="about">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="section-num">02 — About</div>
-        <h2>A seasonal business,<br>run on shul time.</h2>
-      </div>
+      <span class="section-eyebrow">🎉 About</span>
+      <h2>A seasonal business,<br>run on shul time.</h2>
     </div>
 
     <div class="about-grid">
       <div>
-        <p>The Vendorz exists because gift committees have enough to plan without also assembling hundreds of bags by hand the week before a holiday. We build this year's Simchat Torah collection around the actual date it needs to arrive — not a generic shipping window — and pack everything ourselves.</p>
-        <p>Tell us your headcount and delivery date, and we'll take it from there.</p>
+        <p>The Vendorz exists because gift committees have enough to plan without also assembling hundreds of bags by hand. We pack everything ourselves.</p>
+        <p>Tell us your headcount, and we'll take it from there.</p>
       </div>
       <div class="principles">
         <div class="principle">
-          <div class="mono">Timing</div>
-          <h4>Built to your holiday date</h4>
-          <p>We work backward from your delivery date, not a standard shipping estimate.</p>
-        </div>
-        <div class="principle">
-          <div class="mono">Flexibility</div>
+          <div class="mono">🍭 Flexibility</div>
           <h4>Sized for your shul</h4>
           <p>From a 50-bag order to a 200+ bag shul-wide drop.</p>
         </div>
         <div class="principle">
-          <div class="mono">Simplicity</div>
+          <div class="mono">🎊 Simplicity</div>
           <h4>One less thing to assemble</h4>
           <p>We pack and deliver — your committee doesn't have to.</p>
         </div>
       </div>
     </div>
-
-    <div class="calendar">
-      <div class="calendar-item"><div class="when">Order by</div><div class="what">Tzom Gedaliah</div></div>
-      <div class="calendar-item"><div class="when">Custom inserts</div><div class="what" style="font-size:0.92rem; line-height:1.3;">Please place orders early for custom designs</div></div>
-      <div class="calendar-item"><div class="when">Standing orders</div><div class="what">Year to year</div></div>
-    </div>
   </div>
 </section>
 
-<!-- CUSTOMIZE ME: contact email and closing copy -->
 <section class="contact" id="contact">
-  <div class="eyebrow" style="justify-content:center;">🍡 Get in touch</div>
+  <div class="eyebrow" style="justify-content:center;">Ready to make it special?</div>
   <h2>Tell us your headcount and delivery date.</h2>
   <p>We'll send a quote back with pricing, lead time, and bag options for your shul's size.</p>
   <div class="hero-actions" style="justify-content:center;">
-    <a href="mailto:hello@thevendorz.com" class="btn btn-primary">hello@thevendorz.com →</a>
+    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
     <a href="bags.html" class="btn btn-ghost">See This Year's Bags</a>
   </div>
 </section>
 
 <footer>
   <div>© 2026 The Vendorz</div>
-  <div>🍭 Simchat Torah Goodie Bags for Shuls — Servicing Brooklyn</div>
+  <div class="footer-contact">
+    <a href="tel:+16467701541">(646) 770-1541</a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://instagram.com/thevendorz" target="_blank">@thevendorz</a>
+    <span style="color:var(--line);">—</span>
+    <a href="contact.html">Contact us</a>
+  </div>
 </footer>
 
 </body>
