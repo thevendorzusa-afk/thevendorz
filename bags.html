@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vendorz — This Year's Bags</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kraft: #EDE1BE;
+    --card: #F9F2DE;
+    --ink: #382A1F;
+    --berry: #8C2F39;
+    --mustard: #C98A2C;
+    --candy-pink: #FF6B9D;
+    --candy-lime: #A4D65E;
+    --candy-mint: #5ECCC0;
+    --candy-purple: #D946A6;
+    --muted: #8A7860;
+    --line: rgba(56,42,31,0.22);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--kraft);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'Space Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--kraft);
+    border-bottom:3px solid var(--berry);
+    box-shadow:0 2px 8px rgba(56,42,31,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .logo-slot{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+  }
+  .logo-placeholder{
+    width:38px;
+    height:26px;
+    background:linear-gradient(135deg, var(--mustard) 0%, var(--candy-pink) 100%);
+    border-radius:2px 9px 2px 2px;
+    transform:rotate(-6deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Mono',monospace;
+    font-size:0.45rem;
+    color:white;
+    text-transform:uppercase;
+    flex-shrink:0;
+    position:relative;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .logo-placeholder::after{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:50%;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    transform:translateY(-50%);
+    box-shadow:0 0 0 1px var(--ink);
+  }
+  .brand{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:1.25rem;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .brand .mark{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  nav.tabs{
+    display:flex;
+    gap:2px;
+  }
+  nav.tabs a{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    text-decoration:none;
+    color:var(--muted);
+    padding:10px 14px;
+    transition:color .15s ease;
+    border-radius:3px;
+  }
+  nav.tabs a:hover{
+    color:var(--candy-pink);
+    background:rgba(255,107,157,0.1);
+  }
+  @media (max-width:720px){
+    nav.tabs{display:none;}
+  }
+
+  .page-hero{
+    padding:64px 32px 48px;
+    border-bottom:2px dashed var(--candy-lime);
+  }
+  .page-hero .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    margin-bottom:20px;
+    font-weight:700;
+  }
+  .page-hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.1rem);
+    line-height:1.08;
+    margin:0 0 16px;
+    max-width:18ch;
+  }
+  .page-hero p{
+    font-size:1.02rem;
+    line-height:1.6;
+    color:var(--muted);
+    max-width:52ch;
+    margin:0;
+  }
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--muted);
+    text-decoration:none;
+    margin-bottom:24px;
+    transition:color .15s ease;
+  }
+  .back-link:hover{ color:var(--candy-pink); }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border-radius:8px;
+    transition:all .2s ease;
+    font-weight:700;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    color:white;
+    border:2px solid transparent;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
+  }
+  .btn-primary:active{ transform:scale(0.97); }
+  .btn-ghost{
+    color:var(--ink);
+    border:2px solid var(--candy-pink);
+    background:transparent;
+  }
+  .btn-ghost:hover{ 
+    background:var(--candy-pink);
+    color:white;
+    transform:translateY(-2px);
+  }
+  .btn-ghost:active{ transform:scale(0.97); }
+
+  .section{
+    padding:72px 32px;
+    border-bottom:2px dashed var(--line);
+  }
+  .section-head{
+    margin-bottom:48px;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem,3vw,2.4rem);
+    margin:0;
+  }
+  .section-eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+    display:block;
+    font-weight:700;
+  }
+  .section-desc{
+    color:var(--muted);
+    max-width:52ch;
+    line-height:1.6;
+    margin-top:12px;
+  }
+
+  .tiers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  @media (max-width:900px){ .tiers{grid-template-columns:1fr;} }
+  .tier{
+    background:var(--card);
+    border:2px solid var(--line);
+    border-radius:12px;
+    padding:32px 26px 26px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    box-shadow:0 8px 24px rgba(56,42,31,0.08);
+    transition:all .3s ease;
+  }
+  .tier:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(56,42,31,0.12);
+  }
+  .tier::before{
+    content:"";
+    display:block;
+    height:8px;
+    margin:-32px -26px 4px;
+    background:linear-gradient(90deg, var(--candy-pink), var(--candy-purple), var(--candy-mint));
+    border-radius:12px 12px 0 0;
+  }
+  .tier.featured{
+    border-color:var(--candy-pink);
+    border-width:3px;
+  }
+  .tier-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .tier-name{
+    font-size:1.25rem;
+    margin:0;
+  }
+  .tier-sub{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-top:4px;
+    display:block;
+  }
+  .stamp{
+    padding:8px 12px;
+    border:2px solid var(--candy-pink);
+    border-radius:6px;
+    color:var(--candy-pink);
+    font-family:'Space Mono',monospace;
+    font-size:0.5rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    text-align:center;
+    line-height:1.2;
+    transform:rotate(-5deg);
+    flex-shrink:0;
+    font-weight:700;
+    background:rgba(255,107,157,0.08);
+  }
+  .tier.featured .stamp{
+    border-color:var(--candy-purple);
+    color:var(--candy-purple);
+    background:rgba(217,70,166,0.08);
+    transform:rotate(4deg);
+  }
+  .price{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    font-size:2.1rem;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .price .per{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    color:var(--muted);
+    background:none;
+    -webkit-text-fill-color:unset;
+  }
+  .tier ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex-grow:1;
+  }
+  .tier ul li{
+    font-size:0.92rem;
+    color:var(--ink);
+    padding-left:18px;
+    position:relative;
+    line-height:1.5;
+  }
+  .tier ul li::before{
+    content:"✨";
+    position:absolute;
+    left:0;
+    color:var(--candy-pink);
+    font-size:0.8rem;
+  }
+  .tier .btn{ text-align:center; justify-content:center; margin-top:6px;}
+
+  footer{
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    border-top:3px solid var(--berry);
+    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+  }
+  .footer-contact{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .footer-contact a{
+    text-decoration:none;
+    transition:all .15s ease;
+    color:var(--muted);
+  }
+  .footer-contact a:hover{
+    color:var(--candy-pink);
+    font-weight:700;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+  }
+
+  ::selection{ background:var(--candy-pink); color:white; }
+
+  :focus-visible{
+    outline:2px solid var(--candy-pink);
+    outline-offset:3px;
+    border-radius:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-slot">
+      <div class="logo-placeholder">LOGO</div>
+      <div class="brand">THE <span class="mark">VENDORZ</span></div>
+    </a>
+    <nav class="tabs">
+      <a href="index.html">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#organza">Organza Bags</a>
+    </nav>
+    <a href="contact.html" class="btn btn-ghost" style="padding:8px 16px;">Get a Quote</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <div class="eyebrow">✨ This year's collection ✨</div>
+    <h1>Simchat Torah goodie bags, all in one place.</h1>
+    <p>Pick a package for your whole shul, or add on individual organza favor bags for a smaller group or special request.</p>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">🎉 This Year's Collection</span>
+      <h2>Simchat Torah,<br>packed three ways.</h2>
+      <p class="section-desc">Every bag is built for the holiday — sized and priced for your shul's order.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-head">
+          <div>
+            <h3 class="tier-name">Peckalach</h3>
+            <span class="tier-sub">Goodie Bag</span>
+          </div>
+          <div class="stamp">STANDARD</div>
+        </div>
+        <div class="price">$10<span class="per">/ bag</span></div>
+        <ul>
+          <li>1 snack bag</li>
+          <li>1 mini snack</li>
+          <li>1 drink</li>
+          <li>Loose candy (lollipop, wafer, zaza, etc.)</li>
+        </ul>
+        <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 25</p>
+        <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-head">
+          <div>
+            <h3 class="tier-name">Peckalach Plus</h3>
+            <span class="tier-sub">Goodie Bag</span>
+          </div>
+          <div class="stamp">MOST<br>ORDERED</div>
+        </div>
+        <div class="price">$20<span class="per">/ bag</span></div>
+        <ul>
+          <li>2 snack bags</li>
+          <li>1 mini snack</li>
+          <li>1 drink</li>
+          <li>1 specialty loose candy</li>
+          <li>1 packaged candy (i.e. Mike and Ike)</li>
+          <li>1 mini prize</li>
+        </ul>
+        <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 25</p>
+        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <div>
+            <h3 class="tier-name">Peckalach Pro</h3>
+            <span class="tier-sub">Goodie Bag</span>
+          </div>
+          <div class="stamp">TOP<br>TIER</div>
+        </div>
+        <div class="price">$40<span class="per">/ bag</span></div>
+        <ul>
+          <li>5 snacks</li>
+          <li>2 mini snacks</li>
+          <li>2 drinks</li>
+          <li>2 specialty loose candy</li>
+          <li>1 small prize &amp; 1 big prize</li>
+          <li>Custom logo goodie bag</li>
+        </ul>
+        <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">Order deadline: Tzom Gedaliah</p>
+        <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 25</p>
+        <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="organza">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">✨ Add-On</span>
+      <h2>Organza Bag<br>Orders.</h2>
+      <p class="section-desc">Small mesh favor bags filled with treats — sold on their own for sponsors, kiddush tables, or smaller requests outside the main package order.</p>
+    </div>
+
+    <div class="tiers" style="grid-template-columns:minmax(0,360px); justify-content:center;">
+      <div class="tier">
+        <div class="tier-head">
+          <div>
+            <h3 class="tier-name">Organza Bag</h3>
+            <span class="tier-sub">Add-On</span>
+          </div>
+          <div class="stamp">MINI</div>
+        </div>
+        <div class="price"><span class="per">From</span> $1<span class="per">/ bag</span></div>
+        <p style="color:var(--muted); font-size:0.92rem; line-height:1.5; margin:0;">A pocket-sized favor bag with a handful of treats — great for individual gifting or a table centerpiece bowl.</p>
+        <ul>
+          <li>Handful of treats</li>
+        </ul>
+        <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 50 pc</p>
+        <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 The Vendorz</div>
+  <div class="footer-contact">
+    <a href="tel:+16467701541">(646) 770-1541</a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://instagram.com/thevendorz" target="_blank">@thevendorz</a>
+    <span style="color:var(--line);">—</span>
+    <a href="contact.html">Contact us</a>
+  </div>
+</footer>
+
+</body>
+</html>
