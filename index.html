@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vendorz — Simchat Torah Goodie Bags for Shuls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =====================================================================
+     CUSTOMIZE ME: this :root block is the entire color palette.
+     Change any hex value here and it updates everywhere on the site.
+     ===================================================================== */
+  :root{
+    --navy: #FFF8F0;         /* page background — cream */
+    --navy-deep: #FFFFFF;    /* card backgrounds */
+    --paper: #FFF1E6;
+    --paper-dim: #6B5B66;    /* body copy on light background */
+    --brass: #FF6FA5;
+    --brass-light: #FF5C97;  /* candy pink accent — links, stamps, highlights */
+    --stamp-red: #4ED8B5;    /* mint accent, used sparingly */
+    --slate: #A8909B;        /* muted/secondary text */
+    --off-white: #3A2E39;    /* primary text — deep plum */
+    --line: rgba(58,46,57,0.12); /* soft hairline borders/dividers */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    color:var(--off-white);
+    font-family:'Nunito',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2',cursive;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'Nunito',sans-serif;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---- Header / logo / nav ---- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--navy);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 32px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  /* CUSTOMIZE ME: logo slot.
+     To drop in a real logo image, replace the contents of .logo-slot with:
+     <img src="your-logo.png" alt="The Vendorz" style="height:36px;display:block;">
+     and delete the placeholder <span> + dashed border below. */
+  .logo-slot{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .logo-placeholder{
+    width:36px;
+    height:36px;
+    border:1.5px dashed var(--brass-light);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Nunito',sans-serif;
+    font-size:0.55rem;
+    color:var(--brass-light);
+    text-transform:uppercase;
+    flex-shrink:0;
+  }
+  .brand{
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    font-size:1.3rem;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .brand .mark{
+    color:var(--brass-light);
+  }
+  nav.tabs{
+    display:flex;
+    gap:2px;
+  }
+  nav.tabs a{
+    font-family:'Nunito',sans-serif;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    text-decoration:none;
+    color:var(--slate);
+    padding:10px 16px;
+    border:1px solid transparent;
+    border-bottom:none;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  nav.tabs a:hover{
+    color:var(--off-white);
+    border-color:var(--line);
+  }
+  @media (max-width:720px){
+    nav.tabs{display:none;}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:96px 32px 80px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1120px;
+    margin:0 auto;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'Nunito',sans-serif;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    color:var(--brass-light);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:24px;
+    height:1px;
+    background:var(--brass-light);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.02;
+    margin:0 0 28px;
+    max-width:16ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--brass-light);
+  }
+  .hero p.lede{
+    font-size:1.15rem;
+    line-height:1.6;
+    color:var(--paper-dim);
+    max-width:46ch;
+    margin:0 0 40px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    font-family:'Nunito',sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    text-decoration:none;
+    border-radius:999px;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:var(--brass-light);
+    color:var(--navy-deep);
+    font-weight:600;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    color:var(--off-white);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--brass-light); color:var(--brass-light);}
+
+  .ledger-bg{
+    position:absolute;
+    right:-60px;
+    top:-40px;
+    bottom:-40px;
+    width:320px;
+    background-image: repeating-linear-gradient(45deg, var(--brass-light) 0px, var(--brass-light) 14px, transparent 14px, transparent 28px, var(--stamp-red) 28px, var(--stamp-red) 42px, transparent 42px, transparent 56px);
+    opacity:0.12;
+    pointer-events:none;
+    border-radius:50%;
+  }
+  @media (max-width:900px){ .ledger-bg{display:none;} }
+
+  .stat-row{
+    display:flex;
+    gap:48px;
+    margin-top:64px;
+    flex-wrap:wrap;
+    padding-top:36px;
+    border-top:1px solid var(--line);
+  }
+  .stat-row .stat .num{
+    font-family:'Baloo 2',cursive;
+    font-size:2.1rem;
+    color:var(--brass-light);
+    display:block;
+  }
+  .stat-row .stat .label{
+    font-family:'Nunito',sans-serif;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--slate);
+  }
+
+  /* ---- Section headers ---- */
+  .section{
+    padding:88px 32px;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem,3.4vw,2.6rem);
+    margin:0;
+  }
+  .section-num{
+    font-family:'Nunito',sans-serif;
+    font-size:0.78rem;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+  }
+  .section-desc{
+    color:var(--paper-dim);
+    max-width:52ch;
+    line-height:1.6;
+    margin-top:12px;
+  }
+
+  /* ---- This year's collection: catalog entries ---- */
+  .catalog{
+    border-top:1px solid var(--line);
+  }
+  .catalog-entry{
+    display:grid;
+    grid-template-columns:90px 1.4fr 1.6fr;
+    gap:28px;
+    align-items:start;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .catalog-entry .code{
+    font-family:'Nunito',sans-serif;
+    color:var(--brass-light);
+    font-size:0.85rem;
+    padding-top:4px;
+    line-height:1.4;
+  }
+  .catalog-entry h3{
+    font-size:1.35rem;
+    margin:0 0 6px;
+  }
+  .catalog-entry p{
+    color:var(--paper-dim);
+    line-height:1.6;
+    margin:0;
+    font-size:0.96rem;
+  }
+  .catalog-entry .tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .catalog-entry .tags span{
+    font-family:'Nunito',sans-serif;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--slate);
+    border:1px solid var(--line);
+    padding:4px 9px;
+    border-radius:999px;
+  }
+  @media (max-width:720px){
+    .catalog-entry{grid-template-columns:56px 1fr; row-gap:8px;}
+    .catalog-entry p{grid-column:2;}
+    .catalog-entry .tags{grid-column:2;}
+  }
+
+  /* ---- Pricing: stamped order tiers ---- */
+  .tiers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  @media (max-width:900px){ .tiers{grid-template-columns:1fr;} }
+  .tier{
+    background:var(--navy-deep);
+    border:2px solid var(--line);
+    border-radius:24px;
+    padding:36px 30px 30px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    box-shadow:0 8px 24px rgba(58,46,57,0.06);
+  }
+  .tier.featured{
+    border-color:var(--brass-light);
+    background:linear-gradient(180deg, rgba(255,92,151,0.08), var(--navy-deep) 60%);
+  }
+  .tier-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .tier-name{
+    font-size:1.3rem;
+    margin:0;
+  }
+  .tier-sub{
+    font-family:'Nunito',sans-serif;
+    font-size:0.72rem;
+    color:var(--slate);
+    text-transform:uppercase;
+    margin-top:4px;
+    display:block;
+  }
+  .stamp{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:1.5px dashed var(--brass-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-8deg);
+    flex-shrink:0;
+    font-family:'Nunito',sans-serif;
+    font-size:0.5rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--brass-light);
+    text-align:center;
+    line-height:1.15;
+    padding:4px;
+  }
+  .tier:not(.featured) .stamp{
+    border-color:var(--slate);
+    color:var(--slate);
+    opacity:0.7;
+  }
+  .price{
+    font-family:'Baloo 2',cursive;
+    font-size:2.3rem;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+  }
+  .price .per{
+    font-family:'Nunito',sans-serif;
+    font-size:0.78rem;
+    color:var(--slate);
+  }
+  .tier ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    flex-grow:1;
+  }
+  .tier ul li{
+    font-size:0.92rem;
+    color:var(--paper-dim);
+    padding-left:20px;
+    position:relative;
+    line-height:1.5;
+  }
+  .tier ul li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--brass-light);
+  }
+  .tier .btn{ text-align:center; justify-content:center; margin-top:8px;}
+
+  /* ---- About ---- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+  }
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{
+    line-height:1.75;
+    color:var(--paper-dim);
+    font-size:1.02rem;
+  }
+  .about-grid p + p{ margin-top:18px; }
+  .principles{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .principle{
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .principle .mono{
+    font-size:0.7rem;
+    color:var(--brass-light);
+    text-transform:uppercase;
+  }
+  .principle h4{
+    margin:6px 0 4px;
+    font-family:'Baloo 2',cursive;
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .principle p{
+    margin:0;
+    font-size:0.88rem;
+    color:var(--slate);
+    line-height:1.5;
+  }
+
+  /* ---- Timeline strip ---- */
+  .calendar{
+    display:flex;
+    gap:0;
+    overflow-x:auto;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin-top:64px;
+  }
+  .calendar-item{
+    flex:1 0 150px;
+    padding:20px 22px;
+    border-right:1px solid var(--line);
+  }
+  .calendar-item:last-child{ border-right:none; }
+  .calendar-item .when{
+    font-family:'Nunito',sans-serif;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    letter-spacing:0.05em;
+  }
+  .calendar-item .what{
+    font-family:'Baloo 2',cursive;
+    font-size:1.05rem;
+    margin-top:6px;
+  }
+
+  /* ---- Contact / Footer ---- */
+  .contact{
+    text-align:center;
+    padding:100px 32px;
+  }
+  .contact h2{
+    font-size:clamp(2rem,4vw,3rem);
+    max-width:18ch;
+    margin:0 auto 20px;
+  }
+  .contact p{
+    color:var(--paper-dim);
+    max-width:44ch;
+    margin:0 auto 36px;
+    line-height:1.6;
+  }
+  footer{
+    padding:32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'Nunito',sans-serif;
+    font-size:0.72rem;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+  }
+
+  ::selection{ background:var(--brass-light); color:var(--navy-deep); }
+
+  :focus-visible{
+    outline:2px solid var(--brass-light);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-slot">
+      <!-- CUSTOMIZE ME: swap this placeholder for <img src="your-logo.png" alt="The Vendorz"> -->
+      <div class="logo-placeholder">LOGO</div>
+      <div class="brand">THE <span class="mark">VENDORZ</span></div>
+    </div>
+    <nav class="tabs">
+      <a href="bags.html">01 · This Year's Bags</a>
+      <a href="#about">02 · About</a>
+      <a href="#contact">03 · Contact</a>
+    </nav>
+    <a href="mailto:hello@thevendorz.com?subject=Quote%20Request" class="btn btn-ghost" style="padding:9px 18px;">Get a Quote</a>
+  </div>
+</header>
+
+<!-- CUSTOMIZE ME: hero headline, subhead, and stats -->
+<section class="hero">
+  <div class="ledger-bg"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">🍬 This year's collection — Servicing Brooklyn</div>
+    <h1>Simchat Torah goodie bags,<br>ready for your<br><em>whole</em> shul.</h1>
+    <p class="lede">The Vendorz packs and delivers Simchat Torah goodie bags for shuls across Brooklyn — treats and a little something for every kid dancing with the Torah this year.</p>
+    <div class="hero-actions">
+      <a href="bags.html" class="btn btn-primary">See this year's bags →</a>
+      <a href="mailto:hello@thevendorz.com?subject=Bulk%20Quote%20Request" class="btn btn-ghost">Get a bulk quote</a>
+    </div>
+    <div class="stat-row">
+      <!-- CUSTOMIZE ME: swap any of these three stats for real numbers -->
+      <div class="stat"><span class="num">50–200+</span><span class="label">Bags Per Order</span></div>
+      <div class="stat"><span class="num">Tzom Gedaliah</span><span class="label">Order Deadline</span></div>
+      <div class="stat"><span class="num">Free</span><span class="label">Delivery on 100+ Bags</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMIZE ME: about copy and the three principle blurbs -->
+<section class="section" id="about" style="border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-num">02 — About</div>
+        <h2>A seasonal business,<br>run on shul time.</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p>The Vendorz exists because gift committees have enough to plan without also assembling hundreds of bags by hand the week before a holiday. We build this year's Simchat Torah collection around the actual date it needs to arrive — not a generic shipping window — and pack everything ourselves.</p>
+        <p>Tell us your headcount and delivery date, and we'll take it from there.</p>
+      </div>
+      <div class="principles">
+        <div class="principle">
+          <div class="mono">Timing</div>
+          <h4>Built to your holiday date</h4>
+          <p>We work backward from your delivery date, not a standard shipping estimate.</p>
+        </div>
+        <div class="principle">
+          <div class="mono">Flexibility</div>
+          <h4>Sized for your shul</h4>
+          <p>From a 50-bag order to a 200+ bag shul-wide drop.</p>
+        </div>
+        <div class="principle">
+          <div class="mono">Simplicity</div>
+          <h4>One less thing to assemble</h4>
+          <p>We pack and deliver — your committee doesn't have to.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <div class="calendar-item"><div class="when">Order by</div><div class="what">Tzom Gedaliah</div></div>
+      <div class="calendar-item"><div class="when">Custom inserts</div><div class="what" style="font-size:0.92rem; line-height:1.3;">Please place orders early for custom designs</div></div>
+      <div class="calendar-item"><div class="when">Standing orders</div><div class="what">Year to year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMIZE ME: contact email and closing copy -->
+<section class="contact" id="contact">
+  <div class="eyebrow" style="justify-content:center;">🍡 Get in touch</div>
+  <h2>Tell us your headcount and delivery date.</h2>
+  <p>We'll send a quote back with pricing, lead time, and bag options for your shul's size.</p>
+  <div class="hero-actions" style="justify-content:center;">
+    <a href="mailto:hello@thevendorz.com" class="btn btn-primary">hello@thevendorz.com →</a>
+    <a href="bags.html" class="btn btn-ghost">See This Year's Bags</a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 The Vendorz</div>
+  <div>🍭 Simchat Torah Goodie Bags for Shuls — Servicing Brooklyn</div>
+</footer>
+
+</body>
+</html>
