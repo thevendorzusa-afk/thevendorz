@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
   :root{
     --kraft: #EDE1BE;
@@ -515,7 +517,7 @@
   <div class="contact-group">
     <h2 style="margin-top:0;">Send us a Message</h2>
     
-  <form id="contactForm">
+    <form id="contactForm">
       <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" required>
@@ -523,7 +525,7 @@
 
       <div class="form-group">
         <label for="shul">Shul Name</label>
-        <input type="text" id="shul" name="shul" placeholder="(Optional)" >
+        <input type="text" id="shul" name="shul" placeholder="(Optional)">
       </div>
 
       <div class="form-group">
@@ -543,7 +545,7 @@
 
       <div class="form-group">
         <label for="delivery">Desired Delivery Date</label>
-        <input type="text" id="delivery" name="delivery" placeholder="e.g., October 10, 2024">
+        <input type="text" id="delivery" name="delivery" placeholder="e.g., October 10, 2026">
       </div>
 
       <div class="form-group">
@@ -557,65 +559,39 @@
     </form>
 
     <script>
-      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      (function() {
+        emailjs.init("S9GBrLHFP_VYD68RT"); // Replace with your Public Key
+      })();
+
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const shul = document.getElementById('shul').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const headcount = document.getElementById('headcount').value;
-        const delivery = document.getElementById('delivery').value;
-        const message = document.getElementById('message').value;
-        
-        const emailContent = `
-New Contact Form Submission from The Vendorz Website
 
-CUSTOMER INFORMATION:
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Shul Name: ${shul || '(Not provided)'}
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
 
-ORDER DETAILS:
-Headcount/Bags: ${headcount}
-Desired Delivery Date: ${delivery || '(Not specified)'}
+        const templateParams = {
+          name: document.getElementById('name').value,
+          from_name: document.getElementById('name').value,
+          shul_name: document.getElementById('shul').value || 'Not provided',
+          from_email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value || 'Not provided',
+          headcount: document.getElementById('headcount').value,
+          delivery_date: document.getElementById('delivery').value || 'Not specified',
+          message: document.getElementById('message').value || 'No additional message',
+          time: new Date().toLocaleString()
+        };
 
-MESSAGE:
-${message || '(No additional message)'}
-
----
-Send a reply to: ${email}
-        `;
-        
-        try {
-          const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              access_key: '2a1c4f9c-4b8d-40f7-9e5c-8f2d1a9b3c7e',
-              from_name: name,
-              from_email: email,
-              subject: `New Quote Request from ${name}`,
-              message: emailContent,
-              redirect: 'https://thevendorz.com/thank-you.html'
-            })
-          });
-          
-          const data = await response.json();
-          
-          if (data.success) {
+        emailjs.send('service_ljmyd45', 'template_dihhtz7', templateParams)
+          .then(function() {
             alert('Thank you! Your message has been sent. We\'ll be in touch within 24 hours.');
             document.getElementById('contactForm').reset();
-          } else {
-            alert('There was an error sending your message. Please try again or call us at (646) 770-1541');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('There was an error sending your message. Please try again or call us at (646) 770-1541');
-        }
+            submitBtn.textContent = originalBtnText;
+          }, function(error) {
+            alert('There was an error sending your message. Please try again or call us at (646) 770-1541.');
+            console.error('EmailJS Error:', error);
+            submitBtn.textContent = originalBtnText;
+          });
       });
     </script>
   </div>
