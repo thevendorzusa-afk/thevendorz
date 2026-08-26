@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Vendorz — Build Your Custom Bag</title>
+<title>The Vendorz — Simchat Torah Goodie Bags for Shuls</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
   :root{
     --kraft: #EDE1BE;
@@ -41,6 +40,11 @@
     letter-spacing:0.02em;
   }
   a{color:inherit;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
 
   header{
     position:sticky;
@@ -80,6 +84,18 @@
     position:relative;
     box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
   }
+  .logo-placeholder::after{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:50%;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    transform:translateY(-50%);
+    box-shadow:0 0 0 1px var(--ink);
+  }
   .brand{
     font-family:'Bricolage Grotesque',sans-serif;
     font-weight:800;
@@ -113,6 +129,429 @@
     color:var(--candy-pink);
     background:rgba(255,107,157,0.1);
   }
+  @media (max-width:720px){
+    nav.tabs{display:none;}
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border-radius:8px;
+    transition:all .2s ease;
+    font-weight:700;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    color:white;
+    border:2px solid transparent;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
+  }
+  .btn-primary:active{ transform:scale(0.97); }
+  .btn-ghost{
+    color:var(--ink);
+    border:2px solid var(--candy-pink);
+    background:transparent;
+  }
+  .btn-ghost:hover{ 
+    background:var(--candy-pink);
+    color:white;
+    transform:translateY(-2px);
+  }
+  .btn-ghost:active{ transform:scale(0.97); }
+
+  .hero{
+    padding:88px 32px 64px;
+    border-bottom:2px dashed var(--candy-lime);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"🍭 🍬 🍭 🍬 🍭 🍬 🍭 🍬 🍭";
+    position:absolute;
+    top:10%;
+    right:5%;
+    font-size:2rem;
+    opacity:0.15;
+    animation:float 6s ease-in-out infinite;
+  }
+  .hero::after{
+    content:"🎉 🎊 🎉 🎊 🎉";
+    position:absolute;
+    bottom:10%;
+    left:5%;
+    font-size:2.5rem;
+    opacity:0.15;
+    animation:float 8s ease-in-out infinite reverse;
+  }
+  @keyframes float {
+    0%, 100% { transform:translateY(0px); }
+    50% { transform:translateY(-20px); }
+  }
+  .hero-inner{
+    max-width:1120px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    margin-bottom:22px;
+    font-weight:700;
+  }
+  .hero h1{
+    font-size:clamp(2.5rem, 5.6vw, 4.2rem);
+    line-height:1.04;
+    margin:0 0 26px;
+    max-width:16ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .hero p.lede{
+    font-size:1.1rem;
+    line-height:1.6;
+    color:var(--muted);
+    max-width:46ch;
+    margin:0 0 32px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .hero-facts{
+    margin-top:44px;
+    padding-top:24px;
+    border-top:2px solid var(--candy-mint);
+    border-bottom:2px solid var(--candy-lime);
+    padding-bottom:24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--muted);
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 14px;
+    background:linear-gradient(90deg, rgba(94,204,192,0.05) 0%, rgba(164,214,94,0.05) 100%);
+    padding-left:16px;
+    padding-right:16px;
+    border-radius:8px;
+  }
+  .hero-facts strong{ 
+    color:var(--ink);
+    font-weight:700;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-lime));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  .section{
+    padding:80px 32px;
+    border-bottom:2px dashed var(--line);
+    position:relative;
+  }
+  .section-head{
+    margin-bottom:48px;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem,3vw,2.4rem);
+    margin:0;
+  }
+  .section-eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+    display:block;
+    font-weight:700;
+  }
+  .section-desc{
+    color:var(--muted);
+    max-width:52ch;
+    line-height:1.6;
+    margin-top:12px;
+  }
+
+  .tiers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  @media (max-width:900px){ .tiers{grid-template-columns:1fr;} }
+  .tier{
+    background:var(--card);
+    border:2px solid var(--line);
+    border-radius:12px;
+    padding:32px 26px 26px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    box-shadow:0 8px 24px rgba(56,42,31,0.08);
+    transition:all .3s ease;
+  }
+  .tier:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(56,42,31,0.12);
+  }
+  .tier::before{
+    content:"";
+    display:block;
+    height:8px;
+    margin:-32px -26px 4px;
+    background:linear-gradient(90deg, var(--candy-pink), var(--candy-purple), var(--candy-mint));
+    border-radius:12px 12px 0 0;
+  }
+  .tier.featured{
+    border-color:var(--candy-pink);
+    border-width:3px;
+  }
+  .tier-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .tier-name{
+    font-size:1.25rem;
+    margin:0;
+  }
+  .tier-sub{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-top:4px;
+    display:block;
+  }
+  .stamp{
+    padding:8px 12px;
+    border:2px solid var(--candy-pink);
+    border-radius:6px;
+    color:var(--candy-pink);
+    font-family:'Space Mono',monospace;
+    font-size:0.5rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    text-align:center;
+    line-height:1.2;
+    transform:rotate(-5deg);
+    flex-shrink:0;
+    font-weight:700;
+    background:rgba(255,107,157,0.08);
+  }
+  .tier.featured .stamp{
+    border-color:var(--candy-purple);
+    color:var(--candy-purple);
+    background:rgba(217,70,166,0.08);
+    transform:rotate(4deg);
+  }
+  .price{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    font-size:2.1rem;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+  }
+  .price{
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .price .per{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    color:var(--muted);
+    background:none;
+    -webkit-text-fill-color:unset;
+  }
+  .tier ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex-grow:1;
+  }
+  .tier ul li{
+    font-size:0.92rem;
+    color:var(--ink);
+    padding-left:18px;
+    position:relative;
+    line-height:1.5;
+  }
+  .tier ul li::before{
+    content:"✨";
+    position:absolute;
+    left:0;
+    color:var(--candy-pink);
+    font-size:0.8rem;
+  }
+  .tier .btn{ text-align:center; justify-content:center; margin-top:6px;}
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+  }
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{
+    line-height:1.7;
+    color:var(--ink);
+    font-size:1rem;
+  }
+  .about-grid p + p{ margin-top:16px; }
+  .principles{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border-top:2px solid var(--candy-mint);
+  }
+  .principle{
+    padding:18px 0;
+    border-bottom:2px solid var(--candy-mint);
+  }
+  .principle .mono{
+    font-size:0.68rem;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  .principle h4{
+    margin:6px 0 4px;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    font-size:1.02rem;
+  }
+  .principle p{
+    margin:0;
+    font-size:0.86rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+
+  .contact{
+    text-align:center;
+    padding:88px 32px;
+    background:linear-gradient(135deg, rgba(255,107,157,0.08) 0%, rgba(164,214,94,0.08) 100%);
+  }
+  .contact h2{
+    font-size:clamp(1.9rem,3.6vw,2.8rem);
+    max-width:18ch;
+    margin:0 auto 18px;
+  }
+  .contact h2{
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .contact p{
+    color:var(--muted);
+    max-width:44ch;
+    margin:0 auto 32px;
+    line-height:1.6;
+  }
+  footer{
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    border-top:3px solid var(--berry);
+    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+  }
+  .footer-contact{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .footer-contact a{
+    text-decoration:none;
+    transition:all .15s ease;
+    color:var(--muted);
+  }
+  .footer-contact a:hover{
+    color:var(--candy-pink);
+    font-weight:700;
+  }
+  .social-icon{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-size:0.9rem;
+  }
+
+  .social-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:all .15s ease;
+  }
+
+  .social-logo{
+    width:18px;
+    height:18px;
+    display:block;
+  }
+
+  .social-link:hover .social-logo{
+    transform:scale(1.2);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; animation:none !important; }
+  }
+
+  ::selection{ background:var(--candy-pink); color:white; }
+
+  :focus-visible{
+    outline:2px solid var(--candy-pink);
+    outline-offset:3px;
+    border-radius:3px;
+  }
 
   .promo-banner{
     background:linear-gradient(90deg, var(--candy-pink) 0%, var(--candy-purple) 50%, var(--candy-mint) 100%);
@@ -127,8 +566,9 @@
     position:relative;
     overflow:hidden;
   }
+
   .promo-banner::before{
-    content:"🎉 10% OFF all orders if ordered before Rosh Hashana 🎉  •  🎉 10% OFF all orders if ordered before Rosh Hashana 🎉";
+    content:"🎉 10% OFF all orders if ordered before Rosh Hashana 🎉  •  🎉 10% OFF all orders if ordered before Rosh Hashana 🎉  •  🎉 10% OFF all orders if ordered before Rosh Hashana 🎉";
     position:absolute;
     left:0;
     top:50%;
@@ -136,233 +576,21 @@
     white-space:nowrap;
     animation:scroll-banner 20s linear infinite;
   }
+
   @keyframes scroll-banner {
     0% { transform:translateX(0) translateY(-50%); }
-    100% { transform:translateX(-50%) translateY(-50%); }
+    100% { transform:translateX(-33.33%) translateY(-50%); }
   }
 
-  /* Builder Layout */
-  .builder-section {
-    padding: 48px 32px;
-    max-width: 1120px;
-    margin: 0 auto;
-  }
-
-  .build-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  @media (min-width: 800px) {
-    .build-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: start;
-    }
-  }
-
-  .preview-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    position: sticky;
-    top: 90px;
-  }
-
-  .preview-card {
-    background: var(--card);
-    border: 2px solid var(--line);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(56,42,31,0.08);
-  }
-
-  .preview-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-
-  .preview-card p {
-    padding: 12px 16px;
-    margin: 0;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--ink);
-    text-transform: uppercase;
-    text-align: center;
-    background: rgba(56,42,31,0.04);
-    border-top: 1px solid var(--line);
-  }
-
-  .builder-card {
-    background: var(--card);
-    border: 2px solid var(--line);
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 8px 24px rgba(56,42,31,0.08);
-  }
-
-  .eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-
-  .hidden { display: none !important; }
-
-  .item-card {
-    background: var(--kraft);
-    border: 2px solid var(--line);
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-  }
-
-  .counter-controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .counter-controls button {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    border: 2px solid var(--candy-pink);
-    background: var(--card);
-    color: var(--candy-pink);
-    cursor: pointer;
-    font-family: 'Space Mono', monospace;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: all .15s ease;
-  }
-
-  .counter-controls button:hover {
-    background: var(--candy-pink);
-    color: white;
-  }
-
-  .counter-display {
-    font-family: 'Space Mono', monospace;
-    font-weight: bold;
-    min-width: 20px;
-    text-align: center;
-  }
-
-  .toggle-btn {
-    padding: 14px 18px;
-    border: 2px solid var(--line);
-    background: var(--kraft);
-    color: var(--ink);
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 12px;
-    width: 100%;
-    text-align: left;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    transition: all .2s ease;
-  }
-
-  .toggle-btn.active {
-    background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
-    color: white;
-    border-color: transparent;
-  }
-
-  .form-group {
-    margin-bottom: 18px;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  .form-group input, .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--line);
-    border-radius: 8px;
-    background: var(--kraft);
-    font-family: 'Karla', sans-serif;
-    font-size: 0.95rem;
-    color: var(--ink);
-  }
-
-  .form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--candy-pink);
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 24px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.76rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    border-radius: 8px;
-    transition: all .2s ease;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
-  }
-
-  .btn-ghost {
-    color: var(--ink);
-    border: 2px solid var(--candy-pink);
-    background: transparent;
-  }
-
-  .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 24px;
-  }
-
-  footer {
-    padding: 28px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    border-top: 3px solid var(--berry);
-    background: linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+  .promo-banner::after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:100px;
+    height:100%;
+    background:linear-gradient(90deg, transparent, var(--candy-pink), var(--candy-purple), var(--candy-mint));
+    pointer-events:none;
   }
 </style>
 </head>
@@ -385,313 +613,81 @@
   </div>
 </header>
 
-<section class="builder-section">
-  <div class="build-container">
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">✨ This year's collection — servicing Brooklyn ✨</div>
+    <h1>Simchat Torah goodie bags,<br>ready for your <em>whole</em> shul.</h1>
+    <p class="lede">The Vendorz packs and delivers Simchat Torah goodie bags for shuls across Brooklyn — treats and a little something for every kid dancing with the Torah this year.</p>
+    <div class="hero-actions">
+      <a href="bags.html" class="btn btn-primary">See This Year's Bags</a>
+      <a href="contact.html" class="btn btn-ghost">Get a Bulk Quote</a>
+    </div>
+    <div class="hero-facts">
+      <span><strong>50–200+</strong> bags per order</span>
+      <span>/</span>
+      <span><strong>free</strong> delivery on 100+ bags</span>
+    </div>
+  </div>
+</section>
 
-    <!-- Left Side: Product Photos Grid -->
-    <div class="preview-gallery">
-      <div class="preview-card">
-        <img src="edited-image.jpg" alt="Snack & Candy Options">
-        <p>Available Snacks, Drinks & Prizes</p>
-      </div>
-      <div class="preview-card">
-        <img src="IMG_9043.jpg" alt="Completed Bag Sample">
-        <p>Assembled Custom Bag Example</p>
-      </div>
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">🎉 About</span>
+      <h2>A seasonal business,<br>run on shul time.</h2>
     </div>
 
-    <!-- Right Side: Interactive Build Form -->
-    <div class="builder-card">
-      
-      <!-- Step 1: Select Items -->
-      <div id="step1">
-        <span class="eyebrow">Step 1 of 3</span>
-        <h2 style="margin-top:0;">Build Your Bag</h2>
-        <p style="color:var(--muted);">Select up to 6 total items per bag (<span id="totalCount" class="mono" style="color:var(--ink); font-weight:bold;">0/6</span>).</p>
-
-        <div class="item-card" data-item="snack">
-          <span>Snack Bag</span>
-          <div class="counter-controls">
-            <button onclick="adjustCount(this, -1)">-</button>
-            <span class="counter-display">0</span>
-            <button onclick="adjustCount(this, 1)">+</button>
-          </div>
+    <div class="about-grid">
+      <div>
+        <p>The Vendorz exists because gift committees have enough to plan without also assembling hundreds of bags by hand. We pack everything ourselves.</p>
+        <p>Tell us your headcount, and we'll take it from there.</p>
+      </div>
+      <div class="principles">
+        <div class="principle">
+          <div class="mono">🍭 Flexibility</div>
+          <h4>Sized for your shul</h4>
+          <p>From a 50-bag order to a 200+ bag shul-wide drop.</p>
         </div>
-
-        <div class="item-card" data-item="mini-snack">
-          <span>Mini Snack</span>
-          <div class="counter-controls">
-            <button onclick="adjustCount(this, -1)">-</button>
-            <span class="counter-display">0</span>
-            <button onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="item-card" data-item="drink">
-          <span>Drink Pouch/Box</span>
-          <div class="counter-controls">
-            <button onclick="adjustCount(this, -1)">-</button>
-            <span class="counter-display">0</span>
-            <button onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="item-card" data-item="specialty-candy">
-          <span>Specialty Candy</span>
-          <div class="counter-controls">
-            <button onclick="adjustCount(this, -1)">-</button>
-            <span class="counter-display">0</span>
-            <button onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="item-card" data-item="small-prize">
-          <span>Small Prize</span>
-          <div class="counter-controls">
-            <button onclick="adjustCount(this, -1)">-</button>
-            <span class="counter-display">0</span>
-            <button onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="item-card" data-item="big-prize">
-          <span>Big Prize</span>
-          <div class="counter-controls">
-            <button onclick="adjustCount(this, -1)">-</button>
-            <span class="counter-display">0</span>
-            <button onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="nav-buttons">
-          <div></div>
-          <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next Step →</button>
+        <div class="principle">
+          <div class="mono">🎊 Simplicity</div>
+          <h4>One less thing to assemble</h4>
+          <p>We pack and deliver — your committee doesn't have to.</p>
         </div>
       </div>
-
-      <!-- Step 2: Customization Options -->
-      <div id="step2" class="hidden">
-        <span class="eyebrow">Step 2 of 3</span>
-        <h2 style="margin-top:0;">Bag Customizations</h2>
-        
-        <button type="button" id="looseCandy" class="toggle-btn active" onclick="toggleLooseCandy()">
-          Include Loose Candy Assortment (Yes)
-        </button>
-
-        <button type="button" id="logoBag" class="toggle-btn" onclick="toggleLogo()">
-          Custom Logo Printed on Bag (No)
-        </button>
-
-        <button type="button" id="sponsorCards" class="toggle-btn" onclick="toggleSponsor()">
-          Insert Sponsor/Shul Cards (No)
-        </button>
-
-        <div class="nav-buttons">
-          <button type="button" class="btn btn-ghost" onclick="prevStep(2)">← Back</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step →</button>
-        </div>
-      </div>
-
-      <!-- Step 3: Contact Details (No Delivery Date) -->
-      <div id="step3" class="hidden">
-        <span class="eyebrow">Step 3 of 3</span>
-        <h2 style="margin-top:0;">Order Request Details</h2>
-
-        <form id="buildBagForm">
-          <div class="form-group">
-            <label for="name">Your Name *</label>
-            <input type="text" id="name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone">
-          </div>
-
-          <div class="form-group">
-            <label for="shul">Shul / Organization</label>
-            <input type="text" id="shul">
-          </div>
-
-          <div class="form-group">
-            <label for="quantity">How many bags? * (Minimum 100)</label>
-            <input type="number" id="quantity" min="100" required>
-          </div>
-
-          <div class="form-group">
-            <label for="notes">Additional notes</label>
-            <textarea id="notes" rows="3" placeholder="Allergies, design requests..."></textarea>
-          </div>
-
-          <div class="nav-buttons">
-            <button type="button" class="btn btn-ghost" onclick="prevStep(3)">← Back</button>
-            <button type="submit" class="btn btn-primary">Send Order Request</button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Success Screen -->
-      <div id="stepSuccess" class="hidden">
-        <span class="eyebrow">Request Received</span>
-        <h2>Thank You!</h2>
-        <p style="color:var(--muted); line-height:1.6;">Your custom bag order request has been submitted. Our team will follow up within 24 hours with your estimate.</p>
-      </div>
-
     </div>
+  </div>
+</section>
 
+<section class="contact" id="contact">
+  <div class="eyebrow" style="justify-content:center;">Ready to make it special?</div>
+  <h2>Tell us your headcount and delivery date.</h2>
+  <p>We'll send a quote back with pricing, lead time, and bag options for your shul's size.</p>
+  <div class="hero-actions" style="justify-content:center;">
+    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+    <a href="bags.html" class="btn btn-ghost">See This Year's Bags</a>
   </div>
 </section>
 
 <footer>
   <div>© 2026 The Vendorz</div>
-  <div style="display:flex; gap:16px;">
-    <a href="tel:+16467701541" style="text-decoration:none;">(646) 770-1541</a>
-    <span>—</span>
-    <a href="https://instagram.com/thevendorz" target="_blank" style="text-decoration:none;">@thevendorz</a>
+  <div class="footer-contact">
+    <a href="tel:+16467701541">(646) 770-1541</a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://wa.me/16467701541" class="social-link" target="_blank">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.082.365-2.906 1.009l-.208.126-2.155-.564.574 2.084.13.208c-.704.922-1.077 1.988-1.077 3.116 0 2.88 2.353 5.233 5.233 5.233 1.394 0 2.707-.54 3.697-1.524 1.106-1.126 1.716-2.655 1.716-4.261 0-2.88-2.353-5.233-5.233-5.233m4.335-3.543C15.9 2.134 12.6 1 9.26 1 5.13 1 1.969 4.161 1.969 8.29c0 1.532.382 3.02 1.105 4.287L1.07 23.16l4.95-1.298C7.618 22.75 9.26 23.162 9.26 23.162c3.905 0 7.735-1.806 10.141-4.908 2.406-3.102 3.131-7.243 1.905-11.028C19.769 4.44 17.708 2.839 15.974 1.839" fill="#25D366"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://instagram.com/thevendorz" class="social-link" target="_blank">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#E1306C">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+      </svg>
+      <span>@thevendorz</span>
+    </a>
   </div>
 </footer>
-
-<script>
-(function() {
-  emailjs.init("YOUR_PUBLIC_KEY");
-})();
-
-const items = {
-  'snack': 0,
-  'mini-snack': 0,
-  'drink': 0,
-  'specialty-candy': 0,
-  'small-prize': 0,
-  'big-prize': 0
-};
-
-let looseCandy = true;
-let customLogo = false;
-let sponsorCards = false;
-
-function adjustCount(button, change) {
-  const counter = button.parentElement.querySelector('.counter-display');
-  const itemCard = button.closest('.item-card');
-  const itemType = itemCard.dataset.item;
-  const currentCount = parseInt(counter.textContent);
-  const totalItems = getTotalItems();
-  
-  let newCount = currentCount + change;
-  if (newCount < 0) newCount = 0;
-  if (newCount > 6) newCount = 6;
-  if (totalItems >= 6 && newCount > currentCount) {
-    alert('Maximum 6 items per bag!');
-    return;
-  }
-  
-  items[itemType] = newCount;
-  counter.textContent = newCount;
-  updateTotal();
-}
-
-function getTotalItems() {
-  return Object.values(items).reduce((a, b) => a + b, 0);
-}
-
-function updateTotal() {
-  document.getElementById('totalCount').textContent = getTotalItems() + '/6';
-}
-
-function toggleLooseCandy() {
-  looseCandy = !looseCandy;
-  const btn = document.getElementById('looseCandy');
-  btn.classList.toggle('active');
-  btn.textContent = `Include Loose Candy Assortment (${looseCandy ? 'Yes' : 'No'})`;
-}
-
-function toggleLogo() {
-  customLogo = !customLogo;
-  const btn = document.getElementById('logoBag');
-  btn.classList.toggle('active');
-  btn.textContent = `Custom Logo Printed on Bag (${customLogo ? 'Yes' : 'No'})`;
-}
-
-function toggleSponsor() {
-  sponsorCards = !sponsorCards;
-  const btn = document.getElementById('sponsorCards');
-  btn.classList.toggle('active');
-  btn.textContent = `Insert Sponsor/Shul Cards (${sponsorCards ? 'Yes' : 'No'})`;
-}
-
-function nextStep(currentStep) {
-  if (currentStep === 1 && getTotalItems() === 0) {
-    alert('Please add at least one item to your bag!');
-    return;
-  }
-  document.getElementById('step' + currentStep).classList.add('hidden');
-  document.getElementById('step' + (currentStep + 1)).classList.remove('hidden');
-  window.scrollTo(0, 0);
-}
-
-function prevStep(currentStep) {
-  document.getElementById('step' + currentStep).classList.add('hidden');
-  document.getElementById('step' + (currentStep - 1)).classList.remove('hidden');
-  window.scrollTo(0, 0);
-}
-
-function generateSummary() {
-  let summary = `ITEMS SELECTED:\n`;
-  let hasItems = false;
-  for (const [item, count] of Object.entries(items)) {
-    if (count > 0) {
-      hasItems = true;
-      const itemName = item.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
-      summary += `- ${itemName}: ${count}\n`;
-    }
-  }
-  if (!hasItems) summary += `- None selected\n`;
-  summary += `\nLOOSE CANDY: ${looseCandy ? 'Yes' : 'No'}\n`;
-  summary += `CUSTOMIZATIONS:\n`;
-  summary += `- Custom Logo: ${customLogo ? 'Yes' : 'No'}\n`;
-  summary += `- Sponsor Cards: ${sponsorCards ? 'Yes' : 'No'}\n`;
-  return summary;
-}
-
-document.getElementById('buildBagForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const quantity = parseInt(document.getElementById('quantity').value);
-  if (quantity < 100) {
-    alert('Minimum order for Build a Bag is 100 bags.');
-    return;
-  }
-  
-  const submitBtn = e.target.querySelector('button[type="submit"]');
-  const originalBtnText = submitBtn.textContent;
-  submitBtn.textContent = 'Sending Order...';
-
-  const templateParams = {
-    from_name: document.getElementById('name').value,
-    from_email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value || 'Not provided',
-    shul_name: document.getElementById('shul').value || 'Not provided',
-    quantity: quantity,
-    bag_summary: generateSummary(),
-    notes: document.getElementById('notes').value || 'None',
-    time: new Date().toLocaleString()
-  };
-
-  emailjs.send('YOUR_SERVICE_ID', 'template_dihhtz7', templateParams)
-    .then(function() {
-      document.getElementById('step3').classList.add('hidden');
-      document.getElementById('stepSuccess').classList.remove('hidden');
-      window.scrollTo(0, 0);
-    }, function(error) {
-      alert('Error sending order. Please call us at (646) 770-1541.');
-      console.error('EmailJS Error:', error);
-      submitBtn.textContent = originalBtnText;
-    });
-});
-</script>
 
 </body>
 </html>
