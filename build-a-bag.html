@@ -631,7 +631,7 @@
 
       <div class="item-grid">
         <div class="item-card" data-item="snack">
-          <div class="item-icon">🍪</div>
+      
           <div class="item-name">Snack</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -641,7 +641,7 @@
         </div>
 
         <div class="item-card" data-item="mini-snack">
-          <div class="item-icon">🍰</div>
+         
           <div class="item-name">Mini Snack</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -651,8 +651,8 @@
         </div>
 
         <div class="item-card" data-item="drink">
-          <div class="item-icon">🥤</div>
-          <div class="item-name">Drink</div>
+          
+          <div class="item-name">Box drink</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
             <div class="counter-display" data-count="0">0</div>
@@ -661,7 +661,7 @@
         </div>
 
         <div class="item-card" data-item="specialty-candy">
-          <div class="item-icon">🍬</div>
+         
           <div class="item-name">Specialty Candy</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -670,30 +670,9 @@
           </div>
         </div>
 
-        <div class="item-card" data-item="small-prize">
-          <div class="item-icon">🎁</div>
-          <div class="item-name">Small Prize</div>
-          <div class="item-counter">
-            <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
-            <div class="counter-display" data-count="0">0</div>
-            <button class="counter-btn" onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="item-card" data-item="big-prize">
-          <div class="item-icon">🏆</div>
-          <div class="item-name">Big Prize</div>
-          <div class="item-counter">
-            <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
-            <div class="counter-display" data-count="0">0</div>
-            <button class="counter-btn" onclick="adjustCount(this, 1)">+</button>
-          </div>
-        </div>
-      </div>
-
       <div class="items-total">
         <span class="items-total-label">Total items in bag:</span>
-        <span class="items-total-count" id="totalCount">0/6</span>
+        <span class="items-total-count" id="totalCount">0/30</span>
       </div>
 
       <div class="toggle-group">
@@ -702,6 +681,16 @@
           <div class="toggle-text">
             <h3>Loose Candy</h3>
             <p>Add a handful of mixed candy to the bag?</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="toggle-group">
+        <button class="toggle-switch active" id="Prize" onclick="togglePrize()"></button>
+        <div class="toggle-label">
+          <div class="toggle-text">
+            <h3>Prize</h3>
+            <p>Add a Prize to the bag?</p>
           </div>
         </div>
       </div>
