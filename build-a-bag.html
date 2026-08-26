@@ -626,7 +626,7 @@
       <div class="step-header">
         <div class="step-title">Step 1 of 3</div>
         <h2>Choose your items</h2>
-        <p>Pick up to 6 items for your bag. Start with snacks, treats, prizes, or go minimal!</p>
+        <p>Pick as many items for your bag. Start with snacks, treats, prizes, or go minimal!</p>
       </div>
 
       <div class="item-grid">
@@ -670,10 +670,6 @@
           </div>
         </div>
 
-      <div class="items-total">
-        <span class="items-total-label">Total items in bag:</span>
-        <span class="items-total-count" id="totalCount">0/30</span>
-      </div>
 
       <div class="toggle-group">
         <button class="toggle-switch active" id="looseCandy" onclick="toggleLooseCandy()"></button>
@@ -848,9 +844,9 @@ function adjustCount(button, change) {
   let newCount = currentCount + change;
   
   if (newCount < 0) newCount = 0;
-  if (newCount > 6) newCount = 6;
-  if (totalItems >= 6 && newCount > currentCount) {
-    alert('Maximum 6 items per bag!');
+  if (newCount > 30) newCount = 30;
+  if (totalItems >= 30 && newCount > currentCount) {
+    alert('Maximum 30 items per bag!');
     return;
   }
   
