@@ -364,6 +364,82 @@
   }
   .tier .btn{ text-align:center; justify-content:center; margin-top:6px;}
 
+  .details-toggle{
+    background:none;
+    border:none;
+    padding:0;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    font-weight:700;
+    color:var(--candy-pink);
+    margin-top:8px;
+    transition:color .15s ease;
+  }
+  .details-toggle:hover{
+    color:var(--candy-purple);
+  }
+  .details-toggle.featured{
+    color:var(--candy-purple);
+  }
+  .details-toggle.featured:hover{
+    color:var(--candy-pink);
+  }
+  .details-toggle-arrow{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:16px;
+    height:16px;
+    transition:transform .2s ease;
+    font-size:0.9rem;
+  }
+  .details-toggle[aria-expanded="true"] .details-toggle-arrow{
+    transform:rotate(180deg);
+  }
+
+  .details-banner{
+    background:rgba(255,107,157,0.08);
+    border-left:4px solid var(--candy-pink);
+    padding:12px 14px;
+    border-radius:6px;
+    margin-top:8px;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .3s ease, opacity .3s ease, margin-top .3s ease;
+  }
+  .details-banner.featured{
+    background:rgba(217,70,166,0.08);
+    border-left-color:var(--candy-purple);
+  }
+  .details-banner.open{
+    max-height:200px;
+    opacity:1;
+    margin-top:8px;
+  }
+  .details-banner p{
+    margin:0;
+    font-size:0.8rem;
+    color:var(--ink);
+    line-height:1.5;
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    font-weight:600;
+  }
+  .details-banner strong{
+    color:var(--candy-pink);
+  }
+  .details-banner.featured strong{
+    color:var(--candy-purple);
+  }
+
   footer{
     padding:28px 32px;
     display:flex;
@@ -524,6 +600,13 @@
           <li>2 brand-packaged candies</li>
         </ul>
         <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 50</p>
+        <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+          <span class="details-toggle-arrow">↓</span>
+          Details
+        </button>
+        <div class="details-banner">
+          <p><strong>Snack</strong> = packaged cookies, crackers, or dried goods | <strong>Drink</strong> = juice box or water bottle</p>
+        </div>
         <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
       </div>
 
@@ -547,6 +630,13 @@
           <li>1 small prize</li>
         </ul>
         <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 50</p>
+        <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
+          <span class="details-toggle-arrow">↓</span>
+          Details
+        </button>
+        <div class="details-banner featured">
+          <p><strong>Specialty Snack</strong> = premium items like nuts, dried fruit, or gourmet popcorn | <strong>Mini Snack</strong> = single-serve crackers or chips | <strong>Brand-packaged</strong> = commercial candies | <strong>Specialty Candies</strong> = imported or artisanal sweets</p>
+        </div>
         <a href="contact.html" class="btn btn-primary">Get a Quote</a>
       </div>
 
@@ -570,6 +660,13 @@
         </ul>
         <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">Order deadline: Tzom Gedaliah</p>
         <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 50</p>
+        <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+          <span class="details-toggle-arrow">↓</span>
+          Details
+        </button>
+        <div class="details-banner">
+          <p><strong>Specialty Snack</strong> = premium items like nuts, dried fruit, or gourmet popcorn | <strong>Mini Snack</strong> = single-serve crackers or chips | <strong>Small Prize</strong> = stickers or small toys | <strong>Big Prize</strong> = premium toy or collectible</p>
+        </div>
         <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
       </div>
 
@@ -587,6 +684,13 @@
           <li>Customize your own goodie bags</li>
         </ul>
         <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 100 bags</p>
+        <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
+          <span class="details-toggle-arrow">↓</span>
+          Details
+        </button>
+        <div class="details-banner featured">
+          <p>Work with our team to mix and match <strong>snacks</strong>, <strong>specialty items</strong>, and <strong>prizes</strong> to create your perfect bag — pricing calculated based on your selections</p>
+        </div>
         <a href="build-a-bag.html" class="btn btn-primary">Design Your Bag</a>
       </div>
     </div>
@@ -616,6 +720,13 @@
           <li>Handful of treats</li>
         </ul>
         <p class="mono" style="font-size:0.7rem; color:var(--berry); text-transform:uppercase; margin:0;">MOQ: 50 pc</p>
+        <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+          <span class="details-toggle-arrow">↓</span>
+          Details
+        </button>
+        <div class="details-banner">
+          <p>Contents may include <strong>candies</strong>, <strong>mini snacks</strong>, or <strong>seasonal treats</strong> depending on your selection and budget</p>
+        </div>
         <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
       </div>
     </div>
@@ -643,5 +754,14 @@
   </div>
 </footer>
 
+<script>
+function toggleDetails(button) {
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', !isExpanded);
+  
+  const banner = button.nextElementSibling;
+  banner.classList.toggle('open');
+}
+</script>
 </body>
 </html>
