@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,11 +142,6 @@
   .btn-primary:hover{ 
     transform:translateY(-2px);
     box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
-  }
-  .btn-primary:disabled{
-    opacity:0.5;
-    cursor:not-allowed;
-    transform:none;
   }
   .btn-ghost{
     color:var(--ink);
@@ -314,51 +314,24 @@
     color:var(--candy-pink);
   }
 
-  .items-total{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:16px;
-    background:linear-gradient(90deg, rgba(255,107,157,0.08), rgba(164,214,94,0.08));
-    border-radius:8px;
-    margin-bottom:32px;
-  }
-
-  .items-total-label{
-    font-weight:700;
-    font-size:1.1rem;
-  }
-
-  .items-total-count{
-    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-    font-weight:700;
-    font-size:1.4rem;
-  }
-
-  .toggle-group{
+  .toggle-card{
     background:var(--card);
     border:2px solid var(--line);
     border-radius:12px;
-    padding:24px;
-    margin-bottom:32px;
-  }
-
-  .toggle-label{
+    padding:20px;
+    margin-bottom:16px;
     display:flex;
     align-items:center;
+    justify-content:space-between;
     gap:16px;
-    margin-bottom:0;
   }
 
-  .toggle-text h3{
+  .toggle-card-text h3{
     margin:0;
     font-size:1.1rem;
   }
 
-  .toggle-text p{
+  .toggle-card-text p{
     margin:4px 0 0;
     color:var(--muted);
     font-size:0.9rem;
@@ -473,13 +446,6 @@
     color:var(--candy-pink);
     font-weight:700;
   }
-  .social-icon{
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
-    font-size:0.9rem;
-  }
-
   .social-link{
     display:inline-flex;
     align-items:center;
@@ -588,6 +554,23 @@
     </a>
   </div>
 </header>
+  <section style="padding: 32px 32px 0;">
+  <div class="wrap">
+    <div class="mono" style="font-size: 0.75rem; text-transform: uppercase; color: var(--candy-pink); font-weight: 700; margin-bottom: 12px;">
+      📸 Sample Custom Bags
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <div style="background: var(--card); border: 2px solid var(--line); border-radius: 12px; overflow: hidden;">
+        <img src="IMG_9035.jpeg" alt="Bag Example 1" style="width: 100%; height: 260px; object-fit: cover; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display: none; height: 260px; background: rgba(56,42,31,0.05); align-items: center; justify-content: center; color: var(--muted); font-family: 'Space Mono', monospace; text-transform: uppercase;">Photo 1</div>
+      </div>
+      <div style="background: var(--card); border: 2px solid var(--line); border-radius: 12px; overflow: hidden;">
+        <img src="IMG_9043.jpeg" alt="Bag Example 2" style="width: 100%; height: 260px; object-fit: cover; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display: none; height: 260px; background: rgba(56,42,31,0.05); align-items: center; justify-content: center; color: var(--muted); font-family: 'Space Mono', monospace; text-transform: uppercase;">Photo 2</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="page-hero">
   <div class="wrap">
@@ -598,8 +581,6 @@
   </div>
 </section>
 
-<!-- TWO PHOTOS SECTION -->
-<!-- TWO PHOTOS SECTION -->
 <section style="padding: 32px 32px 0;">
   <div class="wrap">
     <div class="mono" style="font-size: 0.75rem; text-transform: uppercase; color: var(--candy-pink); font-weight: 700; margin-bottom: 12px;">
@@ -631,7 +612,6 @@
 
       <div class="item-grid">
         <div class="item-card" data-item="snack">
-      
           <div class="item-name">Snack</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -641,7 +621,6 @@
         </div>
 
         <div class="item-card" data-item="mini-snack">
-         
           <div class="item-name">Mini Snack</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -651,7 +630,6 @@
         </div>
 
         <div class="item-card" data-item="drink">
-          
           <div class="item-name">Box drink</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -661,7 +639,6 @@
         </div>
 
         <div class="item-card" data-item="specialty-candy">
-         
           <div class="item-name">Specialty Candy</div>
           <div class="item-counter">
             <button class="counter-btn" onclick="adjustCount(this, -1)">−</button>
@@ -669,26 +646,22 @@
             <button class="counter-btn" onclick="adjustCount(this, 1)">+</button>
           </div>
         </div>
-
-
-      <div class="toggle-group">
-        <button class="toggle-switch active" id="looseCandy" onclick="toggleLooseCandy()"></button>
-        <div class="toggle-label">
-          <div class="toggle-text">
-            <h3>Loose Candy</h3>
-            <p>Add a handful of mixed candy to the bag?</p>
-          </div>
-        </div>
       </div>
 
-        <div class="toggle-group">
-        <button class="toggle-switch active" id="Prize" onclick="togglePrize()"></button>
-        <div class="toggle-label">
-          <div class="toggle-text">
-            <h3>Prize</h3>
-            <p>Add a Prize to the bag?</p>
-          </div>
+      <div class="toggle-card">
+        <div class="toggle-card-text">
+          <h3>Loose Candy</h3>
+          <p>Add a handful of mixed candy to the bag?</p>
         </div>
+        <button class="toggle-switch active" id="looseCandy" onclick="toggleLooseCandy()"></button>
+      </div>
+
+      <div class="toggle-card">
+        <div class="toggle-card-text">
+          <h3>Prize</h3>
+          <p>Add a Prize to the bag?</p>
+        </div>
+        <button class="toggle-switch active" id="Prize" onclick="togglePrize()"></button>
       </div>
 
       <div class="nav-buttons">
@@ -704,24 +677,20 @@
         <p>Add logo branding or sponsor cards to make it extra special.</p>
       </div>
 
-      <div class="toggle-group">
-        <button class="toggle-switch" id="logoBag" onclick="toggleLogo()"></button>
-        <div class="toggle-label">
-          <div class="toggle-text">
-            <h3>Custom Logo on Bag</h3>
-            <p>Add your shul's logo to the string bag (high-quality printing)</p>
-          </div>
+      <div class="toggle-card">
+        <div class="toggle-card-text">
+          <h3>Custom Logo on Bag</h3>
+          <p>Add your shul's logo to the string bag (high-quality printing)</p>
         </div>
+        <button class="toggle-switch" id="logoBag" onclick="toggleLogo()"></button>
       </div>
 
-      <div class="toggle-group">
-        <button class="toggle-switch" id="sponsorCards" onclick="toggleSponsor()"></button>
-        <div class="toggle-label">
-          <div class="toggle-text">
-            <h3>Sponsor Cards Inside</h3>
-            <p>Include custom sponsor or appreciation cards in each bag</p>
-          </div>
+      <div class="toggle-card">
+        <div class="toggle-card-text">
+          <h3>Sponsor Cards Inside</h3>
+          <p>Include custom sponsor or appreciation cards in each bag</p>
         </div>
+        <button class="toggle-switch" id="sponsorCards" onclick="toggleSponsor()"></button>
       </div>
 
       <div class="nav-buttons">
@@ -757,6 +726,28 @@
         <div class="form-group">
           <label for="shul">Shul Name</label>
           <input type="text" id="shul" name="shul">
+        </div>
+
+        <div class="form-group">
+          <label for="address">Delivery Address *</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City *</label>
+          <input type="text" id="city" name="city" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label for="state">State *</label>
+            <input type="text" id="state" name="state" required>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">ZIP Code *</label>
+            <input type="text" id="zip" name="zip" required>
+          </div>
         </div>
 
         <div class="form-group">
@@ -825,12 +816,11 @@ const items = {
   'snack': 0,
   'mini-snack': 0,
   'drink': 0,
-  'specialty-candy': 0,
-  'small-prize': 0,
-  'big-prize': 0
+  'specialty-candy': 0
 };
 
 let looseCandy = true;
+let prize = true;
 let customLogo = false;
 let sponsorCards = false;
 
@@ -853,21 +843,21 @@ function adjustCount(button, change) {
   items[itemType] = newCount;
   counter.textContent = newCount;
   counter.dataset.count = newCount;
-  updateTotal();
 }
 
 function getTotalItems() {
   return Object.values(items).reduce((a, b) => a + b, 0);
 }
 
-function updateTotal() {
-  const total = getTotalItems();
-  document.getElementById('totalCount').textContent = total + '/6';
-}
-
 function toggleLooseCandy() {
   const btn = document.getElementById('looseCandy');
   looseCandy = !looseCandy;
+  btn.classList.toggle('active');
+}
+
+function togglePrize() {
+  const btn = document.getElementById('Prize');
+  prize = !prize;
   btn.classList.toggle('active');
 }
 
@@ -914,6 +904,7 @@ function generateSummary() {
   }
   
   summary += `\nLOOSE CANDY: ${looseCandy ? 'Yes' : 'No'}\n`;
+  summary += `PRIZE: ${prize ? 'Yes' : 'No'}\n`;
   summary += `\nCUSTOMIZATIONS:\n`;
   summary += `- Custom Logo on Bag: ${customLogo ? 'Yes' : 'No'}\n`;
   summary += `- Sponsor Cards Inside: ${sponsorCards ? 'Yes' : 'No'}\n`;
@@ -935,6 +926,10 @@ document.getElementById('buildBagForm').addEventListener('submit', async functio
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value || '(Not provided)';
   const shul = document.getElementById('shul').value || '(Not provided)';
+  const address = document.getElementById('address').value;
+  const city = document.getElementById('city').value;
+  const state = document.getElementById('state').value;
+  const zip = document.getElementById('zip').value;
   const delivery = document.getElementById('delivery').value || '(Not specified)';
   const notes = document.getElementById('notes').value || '(None)';
   
@@ -947,6 +942,12 @@ Name: ${name}
 Email: ${email}
 Phone: ${phone}
 Shul: ${shul}
+
+DELIVERY ADDRESS:
+${address}
+${city}, ${state} ${zip}
+
+ORDER DETAILS:
 Quantity of Bags: ${quantity}
 Desired Delivery Date: ${delivery}
 
@@ -990,4 +991,4 @@ Send a reply to: ${email}`;
 </script>
 
 </body>
-</html>
+</html><!-- TWO PHOTOS SECTION -->
