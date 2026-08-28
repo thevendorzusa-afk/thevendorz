@@ -455,6 +455,36 @@
     background:linear-gradient(90deg, transparent, var(--candy-pink), var(--candy-purple), var(--candy-mint));
     pointer-events:none;
   }
+
+  .social-links-instagram{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+  }
+
+  .social-links-instagram a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    background:linear-gradient(135deg, rgba(255,107,157,0.1), rgba(217,70,166,0.1));
+    border:2px solid var(--candy-pink);
+    border-radius:8px;
+    text-decoration:none;
+    transition:all .2s ease;
+  }
+
+  .social-links-instagram a:hover{
+    background:var(--candy-pink);
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(255,107,157,0.3);
+  }
+
+  .social-links-instagram svg{
+    width:24px;
+    height:24px;
+  }
 </style>
 </head>
 <body>
@@ -489,9 +519,9 @@
     <h2 style="margin-top:0;">Contact Info</h2>
     
     <div class="contact-method">
-      <div class="label">📞 Phone</div>
-      <h3><a href="tel:+16467701541" style="text-decoration:none;">(646) 770-1541</a></h3>
-      <p>Call us to discuss your shul's order and get a quick quote.</p>
+      <div class="label">💬 WhatsApp / Phone</div>
+      <h3><a href="https://wa.me/16467701541" style="text-decoration:none;">WhatsApp Us</a> / <a href="tel:+16467701541" style="text-decoration:none;">(646) 770-1541</a></h3>
+      <p>Send us your order details to discuss your shul's order and get a quick quote.</p>
     </div>
 
     <div class="divider"></div>
@@ -499,17 +529,21 @@
     <div class="contact-method">
       <div class="label">✉️ Email</div>
       <h3><a href="mailto:thevendorzusa@gmail.com" style="text-decoration:none;">thevendorzusa@gmail.com</a></h3>
-      <p>Send us details about your headcount and delivery date.</p>
+      <p>Send us details about your headcount.</p>
     </div>
 
     <div class="divider"></div>
 
     <div class="contact-method">
-      <div class="label">📸 Follow Us</div>
+      <div class="label">📱 Follow Us</div>
       <h3>@thevendorz</h3>
       <p>See our latest bags and holiday specials on Instagram.</p>
-      <div class="social-links">
-        <a href="https://instagram.com/thevendorz" target="_blank" title="Instagram">📷</a>
+      <div class="social-links-instagram">
+        <a href="https://instagram.com/thevendorz" target="_blank" title="Instagram" aria-label="The Vendorz Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#E1306C">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
@@ -600,8 +634,6 @@
 <footer>
   <div>© 2026 The Vendorz</div>
   <div class="footer-contact">
-    <a href="tel:+16467701541">(646) 770-1541</a>
-    <span style="color:var(--line);">—</span>
     <a href="https://wa.me/16467701541" class="social-link" target="_blank">
       <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.082.365-2.906 1.009l-.208.126-2.155-.564.574 2.084.13.208c-.704.922-1.077 1.988-1.077 3.116 0 2.88 2.353 5.233 5.233 5.233 1.394 0 2.707-.54 3.697-1.524 1.106-1.126 1.716-2.655 1.716-4.261 0-2.88-2.353-5.233-5.233-5.233m4.335-3.543C15.9 2.134 12.6 1 9.26 1 5.13 1 1.969 4.161 1.969 8.29c0 1.532.382 3.02 1.105 4.287L1.07 23.16l4.95-1.298C7.618 22.75 9.26 23.162 9.26 23.162c3.905 0 7.735-1.806 10.141-4.908 2.406-3.102 3.131-7.243 1.905-11.028C19.769 4.44 17.708 2.839 15.974 1.839" fill="#25D366"/>
