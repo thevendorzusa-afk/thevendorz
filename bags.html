@@ -213,7 +213,7 @@
     justify-content: flex-end;
     width: 125px;
     height: 100px;
-    margin-top: 25px;
+    margin-top: 10px;
     background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
     border-radius: 6px 6px 14px 14px;
     text-decoration: none;
@@ -446,7 +446,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 4px 0;
+    margin: 8px 0;
   }
 
   .tier-image img {
@@ -757,7 +757,15 @@
         <div class="tier-content">
           <div class="price">$10<span class="per">/ bag</span></div>
           
-          <!-- Photo Placeholder -->
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner">
+            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc...</p>
+          </div>
+
+          <!-- Photo Container -->
           <div class="tier-image">
             <!-- Replace src with your image path: <img src="peckalach.jpg" alt="Peckalach Bag"> -->
             <span class="tier-image-placeholder">📷 Photo Here</span>
@@ -770,13 +778,6 @@
             <li>2 brand-packaged candies</li>
           </ul>
           <p class="moq-text">MOQ: 50</p>
-          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner">
-            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc...</p>
-          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">STANDARD</div>
@@ -795,7 +796,15 @@
         <div class="tier-content">
           <div class="price">$20<span class="per">/ bag</span></div>
 
-          <!-- Photo Placeholder -->
+          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner featured">
+            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Specialty snack</strong> = Doritos, bissli, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc... | <strong>Specialty candy</strong> = Sour belts, big box Mike and Ike, spray candy, etc... | <strong>Loose candies</strong> = Zaza, sour chews, atomics, etc... | <strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
+          </div>
+
+          <!-- Photo Container -->
           <div class="tier-image">
             <!-- Replace src with your image path: <img src="classic.jpg" alt="Classic Bag"> -->
             <span class="tier-image-placeholder">📷 Photo Here</span>
@@ -812,13 +821,6 @@
             <li>1 small prize</li>
           </ul>
           <p class="moq-text">MOQ: 50</p>
-          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner featured">
-            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Specialty snack</strong> = Doritos, bissli, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc... | <strong>Specialty candy</strong> = Sour belts, big box Mike and Ike, spray candy, etc... | <strong>Loose candies</strong> = Zaza, sour chews, atomics, etc... | <strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
-          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MOST<br>ORDERED</div>
@@ -837,7 +839,15 @@
         <div class="tier-content">
           <div class="price">$40<span class="per">/ bag</span></div>
 
-          <!-- Photo Placeholder -->
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner">
+            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Specialty snack</strong> = Doritos, bissli, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc... | <strong>Prize</strong> = Non-Muktza prizes suitable for ages 3-12</p>
+          </div>
+
+          <!-- Photo Container -->
           <div class="tier-image">
             <!-- Replace src with your image path: <img src="deluxe.jpg" alt="Deluxe Bag"> -->
             <span class="tier-image-placeholder">📷 Photo Here</span>
@@ -854,13 +864,6 @@
           </ul>
           <p class="moq-text">Order deadline: Tzom Gedaliah</p>
           <p class="moq-text">MOQ: 50</p>
-          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner">
-            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Specialty snack</strong> = Doritos, bissli, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc... | <strong>Prize</strong> = Non-Muktza prizes suitable for ages 3-12</p>
-          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">TOP<br>TIER</div>
@@ -879,7 +882,15 @@
         <div class="tier-content">
           <div class="price">$?<span class="per">/ bag</span></div>
 
-          <!-- Photo Placeholder -->
+          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner featured">
+            <p>Work with our team to mix and match <strong>snacks</strong>, <strong>specialty items</strong>, and <strong>prizes</strong> (Non-Muktza, ages 3-12) to create your perfect bag — pricing calculated based on your selections</p>
+          </div>
+
+          <!-- Photo Container -->
           <div class="tier-image">
             <!-- Replace src with your image path: <img src="build-a-bag.jpg" alt="Build A Bag"> -->
             <span class="tier-image-placeholder">📷 Photo Here</span>
@@ -890,13 +901,6 @@
             <li>Customize your own goodie bags</li>
           </ul>
           <p class="moq-text">MOQ: 100 bags</p>
-          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner featured">
-            <p>Work with our team to mix and match <strong>snacks</strong>, <strong>specialty items</strong>, and <strong>prizes</strong> (Non-Muktza, ages 3-12) to create your perfect bag — pricing calculated based on your selections</p>
-          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">NEW<br>ITEM!</div>
@@ -927,7 +931,15 @@
         <div class="tier-content">
           <div class="price"><span class="per">From</span> $1<span class="per">/ bag</span></div>
 
-          <!-- Photo Placeholder -->
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner">
+            <p>Contents may include <strong>mini snacks</strong> (pretzels, wafers, pop-ummms) or <strong>loose candies</strong> (Zaza, sour chews, atomics) depending on your selection and budget</p>
+          </div>
+
+          <!-- Photo Container -->
           <div class="tier-image">
             <!-- Replace src with your image path: <img src="organza.jpg" alt="Organza Bag"> -->
             <span class="tier-image-placeholder">📷 Photo Here</span>
@@ -938,13 +950,6 @@
             <li>Handful of treats</li>
           </ul>
           <p class="moq-text">MOQ: 50 pc</p>
-          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner">
-            <p>Contents may include <strong>mini snacks</strong> (pretzels, wafers, pop-ummms) or <strong>loose candies</strong> (Zaza, sour chews, atomics) depending on your selection and budget</p>
-          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MINI</div>
