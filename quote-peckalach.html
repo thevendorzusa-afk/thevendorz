@@ -1,34 +1,48 @@
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-document.getElementById('quote-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.innerText = 'Sending...';
+  (function(){
+    // REPLACE WITH YOUR ACTUAL PUBLIC KEY
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
 
-  // Generate unique Quote ID (e.g., Q-482910)
-  const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
-  const qty = parseInt(document.getElementById('quantity').value) || 50;
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('quote-form');
+    if (!form) return;
 
-  const params = {
-    quote_id: randomQuoteId,
-    package_name: 'Peckalach Goodie Bag',
-    image_url: 'https://yourwebsite.com/images/peckalach.jpg', // Replace with your image link
-    base_price: '$10 / bag',
-    quantity: qty,
-    estimated_total: '$' + (qty * 10),
-    from_name: document.getElementById('user_name').value,
-    reply_to: document.getElementById('user_email').value,
-    phone: document.getElementById('user_phone').value,
-    shul_name: document.getElementById('shul_name').value,
-    notes: document.getElementById('notes').value || 'None'
-  };
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = document.getElementById('submit-btn');
+      if (btn) btn.innerText = 'Sending...';
 
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
-    .then(() => {
-      alert('Quote request sent! Your quote ID is #' + randomQuoteId);
-      window.location.href = 'bags.html';
-    }, (error) => {
-      alert('Failed to send request: ' + JSON.stringify(error));
-      btn.innerText = 'Submit Quote Request';
+      const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
+      const qtyInput = document.getElementById('quantity');
+      const qty = qtyInput ? (parseInt(qtyInput.value) || 50) : 50;
+
+      const params = {
+        quote_id: randomQuoteId,
+        package_name: 'Peckalach Goodie Bag',
+        image_url: 'https://yourwebsite.com/images/peckalach.jpg',
+        base_price: '$10 / bag',
+        quantity: qty,
+        estimated_total: '$' + (qty * 10),
+        from_name: document.getElementById('user_name')?.value || '',
+        reply_to: document.getElementById('user_email')?.value || '',
+        phone: document.getElementById('user_phone')?.value || '',
+        shul_name: document.getElementById('shul_name')?.value || '',
+        notes: document.getElementById('notes')?.value || 'None'
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+        .then(function() {
+          alert('Quote request sent! Your quote ID is #' + randomQuoteId);
+          window.location.href = 'bags.html';
+        })
+        .catch(function(error) {
+          console.error('EmailJS Error:', error);
+          alert('Failed to send request: ' + JSON.stringify(error));
+          if (btn) btn.innerText = 'Submit Quote Request';
+        });
     });
-});
+  });
 </script>
