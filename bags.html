@@ -275,7 +275,7 @@
     transition:all .3s ease;
   }
 
-  /* ---------------- LEVEL 1: PECKALACH (Standard Kraft) ---------------- */
+  /* PECKALACH (Standard Kraft) */
   .tier-peckalach{
     background:rgba(249,242,222,0.96);
     border:2px solid var(--line);
@@ -289,7 +289,7 @@
     border-radius:16px 16px 0 0;
   }
 
-  /* ---------------- LEVEL 2: CLASSIC (Vibrant Cool) ---------------- */
+  /* CLASSIC (Vibrant Cool) */
   .tier-classic{
     background:#FFFBF2;
     border:3px solid var(--candy-pink);
@@ -307,7 +307,7 @@
     box-shadow:0 16px 36px rgba(255,107,157,0.35);
   }
 
-  /* ---------------- LEVEL 3: DELUXE (Ultra Neon Night - Coolest) ---------------- */
+  /* DELUXE (Ultra Neon Night - Coolest) */
   .tier-deluxe{
     background:linear-gradient(145deg, var(--deluxe-bg), var(--deluxe-card));
     color:var(--deluxe-text);
@@ -350,7 +350,7 @@
     background:rgba(255,255,255,0.05);
   }
 
-  /* ---------------- LEVEL 4: BUILD-A-BAG (Playful Custom) ---------------- */
+  /* BUILD-A-BAG (Playful Custom) */
   .tier-custom{
     background:#FAFFF5;
     border:3px dashed var(--candy-lime);
@@ -382,7 +382,6 @@
     letter-spacing:0.04em;
   }
 
-  /* Content area holds words, photo, and button sequentially */
   .tier-content{
     flex:1;
     display:flex;
@@ -390,10 +389,10 @@
     gap:14px;
   }
 
-  /* PHOTO BOX INSIDE TEXT FLOW */
+  /* PHOTO BOX: 40% SKINNIER (width: 60%), 3x TALLER (height: 420px) */
   .tier-photo{
-    width:100%;
-    min-height:140px;
+    width:60%;
+    height:420px;
     border:2px dashed var(--muted);
     border-radius:10px;
     background:rgba(56,42,31,0.04);
@@ -402,6 +401,7 @@
     justify-content:center;
     overflow:hidden;
     transition:all .2s ease;
+    margin:4px 0;
   }
 
   .tier-photo img{
@@ -591,6 +591,9 @@
       gap:16px;
     }
     .tier-header, .tier-content{
+      width:100%;
+    }
+    .tier-photo{
       width:100%;
     }
   }
