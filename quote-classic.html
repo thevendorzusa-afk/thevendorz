@@ -19,7 +19,7 @@
   .back-link { display: inline-block; margin-bottom: 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--muted); text-decoration: none; }
   .field { margin-bottom: 20px; }
   label { display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
-  input, textarea, select { width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 1rem; }
+  input, textarea { width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 1rem; }
   .btn-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple)); color: white; border: none; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
   .btn-submit:hover { opacity: 0.9; }
 </style>
@@ -77,46 +77,39 @@
     emailjs.init("YOUR_PUBLIC_KEY");
   })();
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById('quote-form');
-    if (!form) return;
+  document.getElementById('quote-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    if (btn) { btn.disabled = true; btn.innerText = 'Sending...'; }
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const btn = document.getElementById('submit-btn');
-      if (btn) btn.innerText = 'Sending...';
+    const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
+    const qty = parseInt(document.getElementById('quantity').value) || 50;
 
-      const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
-      const qtyInput = document.getElementById('quantity');
-      const qty = qtyInput ? (parseInt(qtyInput.value) || 50) : 50;
+    const params = {
+      quote_id: randomQuoteId,
+      package_name: 'Classic Goodie Bag',
+      image_url: 'https://yourwebsite.com/images/classic.jpg',
+      base_price: '$20 / bag',
+      quantity: qty,
+      estimated_total: '$' + (qty * 20),
+      from_name: document.getElementById('user_name').value,
+      reply_to: document.getElementById('user_email').value,
+      phone: document.getElementById('user_phone').value,
+      address: document.getElementById('user_address').value,
+      shul_name: document.getElementById('shul_name').value,
+      notes: document.getElementById('notes').value || 'None',
+      cost: { shipping: '0.00', total: (qty * 20).toFixed(2) }
+    };
 
-      const params = {
-        quote_id: randomQuoteId,
-        package_name: 'Classic Goodie Bag',
-        image_url: 'https://yourwebsite.com/images/classic.jpg',
-        base_price: '$20 / bag',
-        quantity: qty,
-        estimated_total: '$' + (qty * 20),
-        from_name: document.getElementById('user_name')?.value || '',
-        reply_to: document.getElementById('user_email')?.value || '',
-        phone: document.getElementById('user_phone')?.value || '',
-        address: document.getElementById('user_address')?.value || '',
-        shul_name: document.getElementById('shul_name')?.value || '',
-        notes: document.getElementById('notes')?.value || 'None'
-      };
-
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
-        .then(function() {
-          alert('Quote request sent! Your quote ID is #' + randomQuoteId);
-          window.location.href = 'bags.html';
-        })
-        .catch(function(error) {
-          console.error('EmailJS Error:', error);
-          alert('Failed to send request: ' + JSON.stringify(error));
-          if (btn) btn.innerText = 'Submit Quote Request';
-        });
-    });
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+      .then(function() {
+        alert('Quote request sent! Your quote ID is #' + randomQuoteId);
+        if (btn) { btn.disabled = false; btn.innerText = 'Submit Quote Request'; }
+      })
+      .catch(function(error) {
+        alert('Failed to send request: ' + (error.text || JSON.stringify(error)));
+        if (btn) { btn.disabled = false; btn.innerText = 'Submit Quote Request'; }
+      });
   });
 </script>
 </body>
