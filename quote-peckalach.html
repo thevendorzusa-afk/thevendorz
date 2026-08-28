@@ -74,7 +74,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
   (function(){
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("S9GBrLHFP_VYD68RT");
   })();
 
   document.getElementById('quote-form').addEventListener('submit', function(e) {
@@ -101,7 +101,7 @@
       cost: { shipping: '0.00', total: (qty * 10).toFixed(2) }
     };
 
-    emailjs.send('service_ljmyd45', 'YOUR_TEMPLATE_ID', params)
+    emailjs.send('service_ljmyd45', 'template_2cadmvf', params)
       .then(function() {
         alert('Quote request sent! Your quote ID is #' + randomQuoteId);
         if (btn) { btn.disabled = false; btn.innerText = 'Submit Quote Request'; }
