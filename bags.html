@@ -193,17 +193,6 @@
     transition:all .2s ease;
     font-weight:700;
   }
-  .btn-primary{
-    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
-    color:white;
-    border:2px solid transparent;
-    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
-  }
-  .btn-primary:hover{ 
-    transform:translateY(-2px);
-    box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
-  }
-  .btn-primary:active{ transform:scale(0.97); }
   .btn-ghost{
     color:var(--ink);
     border:2px solid var(--candy-pink);
@@ -214,7 +203,91 @@
     color:white;
     transform:translateY(-2px);
   }
-  .btn-ghost:active{ transform:scale(0.97); }
+
+  /* --- BAG BUTTON STYLES --- */
+  .bag-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 125px;
+    height: 100px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    border-radius: 6px 6px 14px 14px;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(217, 70, 166, 0.3);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+
+  /* Tied Top of Bag */
+  .bag-btn::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    width: 65%;
+    height: 14px;
+    background: var(--candy-purple);
+    border-radius: 8px 8px 3px 3px;
+    box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;
+  }
+
+  /* Ribbon Tie */
+  .bag-btn::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    width: 75%;
+    height: 5px;
+    background: var(--candy-mint);
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  /* Circular Center Label */
+  .bag-btn-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 76px;
+    height: 76px;
+    background: var(--card);
+    border: 3px dashed var(--candy-pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--ink);
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    z-index: 3;
+    transition: all 0.25s ease;
+  }
+
+  .bag-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 22px rgba(217, 70, 166, 0.45);
+  }
+
+  .bag-btn:hover .bag-btn-label {
+    border-color: var(--candy-purple);
+    background: #FFFFFF;
+    color: var(--candy-purple);
+    transform: translate(-50%, -40%) scale(1.06) rotate(-3deg);
+  }
+
+  .bag-btn:active {
+    transform: translateY(-1px) scale(0.98);
+  }
 
   .section{
     padding:72px 32px;
@@ -480,20 +553,16 @@
   .tier-sidebar{
     display:flex;
     flex-direction:column;
+    align-items:center;
     gap:10px;
     align-self:center;
-    min-width:120px;
-  }
-
-  .tier-sidebar .btn{
-    padding:10px 16px;
-    font-size:0.7rem;
+    min-width:130px;
   }
 
   footer{
     padding:28px 32px;
     display:flex;
-    justify-space-between;
+    justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:12px;
@@ -604,10 +673,8 @@
     .tier-sidebar{
       min-width:auto;
       flex-direction:row;
+      justify-content:space-between;
       align-self:stretch;
-    }
-    .tier-sidebar .btn{
-      flex:1;
     }
   }
 </style>
@@ -674,7 +741,9 @@
         </div>
         <div class="tier-sidebar">
           <div class="stamp">STANDARD</div>
-          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+          <a href="contact.html" class="bag-btn">
+            <span class="bag-btn-label">Get A<br>Quote</span>
+          </a>
         </div>
       </div>
 
@@ -707,7 +776,9 @@
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MOST<br>ORDERED</div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+          <a href="contact.html" class="bag-btn">
+            <span class="bag-btn-label">Get A<br>Quote</span>
+          </a>
         </div>
       </div>
 
@@ -740,7 +811,9 @@
         </div>
         <div class="tier-sidebar">
           <div class="stamp">TOP<br>TIER</div>
-          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+          <a href="contact.html" class="bag-btn">
+            <span class="bag-btn-label">Get A<br>Quote</span>
+          </a>
         </div>
       </div>
 
@@ -767,7 +840,9 @@
         </div>
         <div class="tier-sidebar">
           <div class="stamp">NEW<br>ITEM!</div>
-          <a href="build-a-bag.html" class="btn btn-primary">Design Your Bag</a>
+          <a href="build-a-bag.html" class="bag-btn">
+            <span class="bag-btn-label">Design<br>Bag</span>
+          </a>
         </div>
       </div>
     </div>
@@ -806,7 +881,9 @@
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MINI</div>
-          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+          <a href="contact.html" class="bag-btn">
+            <span class="bag-btn-label">Get A<br>Quote</span>
+          </a>
         </div>
       </div>
     </div>
