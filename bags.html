@@ -29,24 +29,9 @@
     color:var(--ink);
     font-family:'Karla',sans-serif;
     -webkit-font-smoothing:antialiased;
-    background-image:url('IMG_9035.jpeg');
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
     position:relative;
   }
 
-  body::before{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background:rgba(237,225,190,0.72);
-    pointer-events:none;
-    z-index:1;
-  }
   h1,h2,h3,.display{
     font-family:'Bricolage Grotesque',sans-serif;
     font-weight:700;
@@ -283,7 +268,7 @@
     padding:20px 24px;
     position:relative;
     display:grid;
-    grid-template-columns:200px 1fr auto;
+    grid-template-columns:180px 1fr 130px auto;
     gap:20px;
     align-items:center;
     box-shadow:0 8px 24px rgba(56,42,31,0.12);
@@ -332,6 +317,35 @@
     display:block;
     font-weight:800;
     letter-spacing:0.04em;
+  }
+
+  /* Photo Box Styling (Positioned ~3/4 of the way across) */
+  .tier-photo{
+    width:130px;
+    height:130px;
+    border:2px dashed var(--muted);
+    border-radius:8px;
+    background:rgba(56,42,31,0.04);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+
+  .tier-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .tier-photo-placeholder{
+    font-family:'Space Mono',monospace;
+    font-size:0.6rem;
+    color:var(--muted);
+    text-align:center;
+    text-transform:uppercase;
+    padding:6px;
   }
 
   .stamp{
@@ -633,6 +647,9 @@
       grid-template-columns:1fr;
       gap:12px;
     }
+    .tier-photo{
+      justify-self:center;
+    }
     .tier-sidebar{
       min-width:auto;
       flex-direction:row;
@@ -704,6 +721,10 @@
             <p><strong>Snack</strong> = packaged cookies, crackers, or dried goods | <strong>Drink</strong> = juice box or water bottle</p>
           </div>
         </div>
+        <!-- Photo Box (~3/4 across) -->
+        <div class="tier-photo">
+          <span class="tier-photo-placeholder">Photo Box</span>
+        </div>
         <div class="tier-sidebar">
           <div class="stamp">STANDARD</div>
           <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
@@ -736,6 +757,10 @@
           <div class="details-banner featured">
             <p><strong>Specialty Snack</strong> = premium items like nuts, dried fruit, or gourmet popcorn | <strong>Mini Snack</strong> = single-serve crackers or chips | <strong>Brand-packaged</strong> = commercial candies | <strong>Specialty Candies</strong> = imported or artisanal sweets</p>
           </div>
+        </div>
+        <!-- Photo Box (~3/4 across) -->
+        <div class="tier-photo">
+          <span class="tier-photo-placeholder">Photo Box</span>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MOST<br>ORDERED</div>
@@ -770,6 +795,10 @@
             <p><strong>Specialty Snack</strong> = premium items like nuts, dried fruit, or gourmet popcorn | <strong>Mini Snack</strong> = single-serve crackers or chips | <strong>Small Prize</strong> = stickers or small toys | <strong>Big Prize</strong> = premium toy or collectible</p>
           </div>
         </div>
+        <!-- Photo Box (~3/4 across) -->
+        <div class="tier-photo">
+          <span class="tier-photo-placeholder">Photo Box</span>
+        </div>
         <div class="tier-sidebar">
           <div class="stamp">TOP<br>TIER</div>
           <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
@@ -796,6 +825,10 @@
           <div class="details-banner featured">
             <p>Work with our team to mix and match <strong>snacks</strong>, <strong>specialty items</strong>, and <strong>prizes</strong> to create your perfect bag — pricing calculated based on your selections</p>
           </div>
+        </div>
+        <!-- Photo Box (~3/4 across) -->
+        <div class="tier-photo">
+          <span class="tier-photo-placeholder">Photo Box</span>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">NEW<br>ITEM!</div>
@@ -835,6 +868,10 @@
           <div class="details-banner">
             <p>Contents may include <strong>candies</strong>, <strong>mini snacks</strong>, or <strong>seasonal treats</strong> depending on your selection and budget</p>
           </div>
+        </div>
+        <!-- Photo Box (~3/4 across) -->
+        <div class="tier-photo">
+          <span class="tier-photo-placeholder">Photo Box</span>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MINI</div>
