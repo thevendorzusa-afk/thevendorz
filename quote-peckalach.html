@@ -101,7 +101,7 @@
       cost: { shipping: '0.00', total: (qty * 10).toFixed(2) }
     };
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+    emailjs.send('service_ljmyd45', 'YOUR_TEMPLATE_ID', params)
       .then(function() {
         alert('Quote request sent! Your quote ID is #' + randomQuoteId);
         if (btn) { btn.disabled = false; btn.innerText = 'Submit Quote Request'; }
