@@ -434,6 +434,35 @@
     -webkit-text-fill-color:unset;
   }
 
+  /* --- PRODUCT IMAGE CONTAINER STYLES --- */
+  .tier-image {
+    width: 100%;
+    max-width: 280px;
+    height: 140px;
+    background: rgba(56, 42, 31, 0.05);
+    border: 2px dashed var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 0;
+  }
+
+  .tier-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tier-image-placeholder {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   .tier ul{
     list-style:none;
     padding:0;
@@ -562,7 +591,7 @@
   footer{
     padding:28px 32px;
     display:flex;
-    justify-content:space-between;
+    justify-space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:12px;
@@ -676,6 +705,9 @@
       justify-content:space-between;
       align-self:stretch;
     }
+    .tier-image {
+      max-width: 100%;
+    }
   }
 </style>
 </head>
@@ -724,6 +756,13 @@
         </div>
         <div class="tier-content">
           <div class="price">$10<span class="per">/ bag</span></div>
+          
+          <!-- Photo Placeholder -->
+          <div class="tier-image">
+            <!-- Replace src with your image path: <img src="peckalach.jpg" alt="Peckalach Bag"> -->
+            <span class="tier-image-placeholder">📷 Photo Here</span>
+          </div>
+
           <ul>
             <li>1 snack</li>
             <li>1 mini snack</li>
@@ -755,6 +794,13 @@
         </div>
         <div class="tier-content">
           <div class="price">$20<span class="per">/ bag</span></div>
+
+          <!-- Photo Placeholder -->
+          <div class="tier-image">
+            <!-- Replace src with your image path: <img src="classic.jpg" alt="Classic Bag"> -->
+            <span class="tier-image-placeholder">📷 Photo Here</span>
+          </div>
+
           <ul>
             <li>1 specialty snack</li>
             <li>2 snacks</li>
@@ -790,6 +836,13 @@
         </div>
         <div class="tier-content">
           <div class="price">$40<span class="per">/ bag</span></div>
+
+          <!-- Photo Placeholder -->
+          <div class="tier-image">
+            <!-- Replace src with your image path: <img src="deluxe.jpg" alt="Deluxe Bag"> -->
+            <span class="tier-image-placeholder">📷 Photo Here</span>
+          </div>
+
           <ul>
             <li>2 specialty snacks</li>
             <li>3 snacks</li>
@@ -825,6 +878,13 @@
         </div>
         <div class="tier-content">
           <div class="price">$?<span class="per">/ bag</span></div>
+
+          <!-- Photo Placeholder -->
+          <div class="tier-image">
+            <!-- Replace src with your image path: <img src="build-a-bag.jpg" alt="Build A Bag"> -->
+            <span class="tier-image-placeholder">📷 Photo Here</span>
+          </div>
+
           <ul>
             <li>Snacks, treats, prizes</li>
             <li>Customize your own goodie bags</li>
@@ -866,6 +926,13 @@
         </div>
         <div class="tier-content">
           <div class="price"><span class="per">From</span> $1<span class="per">/ bag</span></div>
+
+          <!-- Photo Placeholder -->
+          <div class="tier-image">
+            <!-- Replace src with your image path: <img src="organza.jpg" alt="Organza Bag"> -->
+            <span class="tier-image-placeholder">📷 Photo Here</span>
+          </div>
+
           <p style="color:var(--muted); font-size:0.85rem; line-height:1.5; margin:0;">A pocket-sized favor bag with a handful of treats — great for individual gifting or a table centerpiece bowl.</p>
           <ul>
             <li>Handful of treats</li>
