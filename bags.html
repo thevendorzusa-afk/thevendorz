@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -264,7 +264,6 @@
     gap:24px;
   }
   
-  /* TIER CARD FLEXBOX CONTAINER */
   .tier{
     border-radius:16px;
     padding:24px;
@@ -275,7 +274,6 @@
     transition:all .3s ease;
   }
 
-  /* PECKALACH (Standard Kraft) */
   .tier-peckalach{
     background:rgba(249,242,222,0.96);
     border:2px solid var(--line);
@@ -289,7 +287,6 @@
     border-radius:16px 16px 0 0;
   }
 
-  /* CLASSIC (Vibrant Cool) */
   .tier-classic{
     background:#FFFBF2;
     border:3px solid var(--candy-pink);
@@ -307,7 +304,6 @@
     box-shadow:0 16px 36px rgba(255,107,157,0.35);
   }
 
-  /* DELUXE (Ultra Neon Night - Coolest) */
   .tier-deluxe{
     background:linear-gradient(145deg, var(--deluxe-bg), var(--deluxe-card));
     color:var(--deluxe-text);
@@ -350,14 +346,12 @@
     background:rgba(255,255,255,0.05);
   }
 
-  /* BUILD-A-BAG (Playful Custom) */
   .tier-custom{
     background:#FAFFF5;
     border:3px dashed var(--candy-lime);
     box-shadow:0 8px 24px rgba(164,214,94,0.25);
   }
 
-  /* LEFT COLUMNS STRUCTURE */
   .tier-header{
     display:flex;
     flex-direction:column;
@@ -390,7 +384,6 @@
     gap:14px;
   }
 
-  /* RIGHT SIDE PHOTO SECTION (Pushed all the way to the right) */
   .tier-media{
     flex:1;
     display:flex;
@@ -399,7 +392,6 @@
     min-width:200px;
   }
 
-  /* PHOTO BOX: Skinny width, 3x taller height, fills entire right block */
   .tier-photo{
     width:100%;
     height:360px;
@@ -668,10 +660,9 @@
           </div>
         </div>
 
-  
-      <div class="tier-photo">
-  <img src="IMG_9380.jpeg" alt="Peckalach Goodie Bag">
-</div>
+        <div class="tier-media">
+          <div class="tier-photo">
+            <img src="IMG_9380.jpeg" alt="Peckalach Goodie Bag">
           </div>
           <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
         </div>
@@ -684,9 +675,7 @@
           <div style="margin-top:12px;"><span class="stamp">MOST ORDERED</span></div>
         </div>
 
-        <div class="tier-photo">
-  <img src="IMG_9041.jpeg" alt="Peckalach Goodie Bag">
-</div>
+        <div class="tier-content">
           <div class="price">$20<span class="per">/ bag</span></div>
           <ul>
             <li>1 specialty snack</li>
@@ -709,7 +698,7 @@
 
         <div class="tier-media">
           <div class="tier-photo">
-            <span class="tier-photo-placeholder">Photo Box</span>
+            <img src="IMG_9041.jpeg" alt="Classic Goodie Bag">
           </div>
           <a href="contact.html" class="btn btn-primary">Get a Quote</a>
         </div>
@@ -744,9 +733,9 @@
 
         <div class="tier-media">
           <div class="tier-photo">
-            <span class="tier-photo-placeholder" style="color:var(--candy-mint);">Photo Box</span>
+            <img src="IMG_1330.jpeg" alt="Classic Goodie Bag">
           </div>
-          <a href="contact.html" class="btn btn-deluxe">Get a Quote</a>
+          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
         </div>
       </div>
 
@@ -773,10 +762,12 @@
           </div>
         </div>
 
-        <div class="tier-media">
+         <div class="tier-media">
           <div class="tier-photo">
-            <span class="tier-photo-placeholder">Photo Box</span>
+            <img src="IMG_1330.jpeg" alt="Classic Goodie Bag">
           </div>
+          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+        </div>
           <a href="build-a-bag.html" class="btn btn-primary" style="background:linear-gradient(135deg, var(--candy-lime), var(--candy-mint)); color:var(--ink);">Design Your Bag</a>
         </div>
       </div>
