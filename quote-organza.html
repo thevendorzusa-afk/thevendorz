@@ -106,7 +106,7 @@
         notes: document.getElementById('notes')?.value || 'None'
       };
 
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+      emailjs.send('YOUR_SERVICE_ID', 'template_2cadmvf', params)
         .then(function() {
           alert('Quote request sent! Your quote ID is #' + randomQuoteId);
           window.location.href = 'bags.html';
