@@ -29,6 +29,23 @@
     color:var(--ink);
     font-family:'Karla',sans-serif;
     -webkit-font-smoothing:antialiased;
+    background-image:url('IMG_9035.jpeg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    position:relative;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(237,225,190,0.87);
+    pointer-events:none;
+    z-index:1;
   }
   h1,h2,h3,.display{
     font-family:'Bricolage Grotesque',sans-serif;
@@ -49,7 +66,7 @@
   header{
     position:sticky;
     top:0;
-    z-index:50;
+    z-index:100;
     background:var(--kraft);
     border-bottom:3px solid var(--berry);
     box-shadow:0 2px 8px rgba(56,42,31,0.06);
@@ -137,6 +154,8 @@
   .page-hero{
     padding:64px 32px 48px;
     border-bottom:2px dashed var(--candy-lime);
+    position:relative;
+    z-index:2;
   }
   .page-hero .eyebrow{
     font-family:'Space Mono',monospace;
@@ -193,6 +212,17 @@
     transition:all .2s ease;
     font-weight:700;
   }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    color:white;
+    border:2px solid transparent;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
+  }
+  .btn-primary:active{ transform:scale(0.97); }
   .btn-ghost{
     color:var(--ink);
     border:2px solid var(--candy-pink);
@@ -203,95 +233,13 @@
     color:white;
     transform:translateY(-2px);
   }
-
-  /* --- BAG BUTTON STYLES --- */
-  .bag-btn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 125px;
-    height: 100px;
-    margin-top: 10px;
-    background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
-    border-radius: 6px 6px 14px 14px;
-    text-decoration: none;
-    box-shadow: 0 6px 16px rgba(217, 70, 166, 0.3);
-    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid rgba(255,255,255,0.4);
-  }
-
-  /* Tied Top of Bag */
-  .bag-btn::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    width: 65%;
-    height: 14px;
-    background: var(--candy-purple);
-    border-radius: 8px 8px 3px 3px;
-    box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;
-  }
-
-  /* Ribbon Tie */
-  .bag-btn::after {
-    content: "";
-    position: absolute;
-    top: -2px;
-    width: 75%;
-    height: 5px;
-    background: var(--candy-mint);
-    border-radius: 4px;
-    z-index: 2;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  }
-
-  /* Circular Center Label */
-  .bag-btn-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    width: 76px;
-    height: 76px;
-    background: var(--card);
-    border: 3px dashed var(--candy-pink);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 800;
-    line-height: 1.15;
-    color: var(--ink);
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-    z-index: 3;
-    transition: all 0.25s ease;
-  }
-
-  .bag-btn:hover {
-    transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 10px 22px rgba(217, 70, 166, 0.45);
-  }
-
-  .bag-btn:hover .bag-btn-label {
-    border-color: var(--candy-purple);
-    background: #FFFFFF;
-    color: var(--candy-purple);
-    transform: translate(-50%, -40%) scale(1.06) rotate(-3deg);
-  }
-
-  .bag-btn:active {
-    transform: translateY(-1px) scale(0.98);
-  }
+  .btn-ghost:active{ transform:scale(0.97); }
 
   .section{
     padding:72px 32px;
     border-bottom:2px dashed var(--line);
+    position:relative;
+    z-index:2;
   }
   .section-head{
     margin-bottom:48px;
@@ -327,7 +275,7 @@
   }
   
   .tier{
-    background:var(--card);
+    background:rgba(249,242,222,0.95);
     border:2px solid var(--line);
     border-radius:12px;
     padding:20px 24px;
@@ -336,8 +284,9 @@
     grid-template-columns:200px 1fr auto;
     gap:20px;
     align-items:center;
-    box-shadow:0 8px 24px rgba(56,42,31,0.08);
+    box-shadow:0 8px 24px rgba(56,42,31,0.15);
     transition:all .3s ease;
+    backdrop-filter:blur(10px);
   }
 
   .tier:hover{
@@ -434,35 +383,6 @@
     -webkit-text-fill-color:unset;
   }
 
-  /* --- PRODUCT IMAGE CONTAINER STYLES --- */
-  .tier-image {
-    width: 100%;
-    max-width: 280px;
-    height: 140px;
-    background: rgba(56, 42, 31, 0.05);
-    border: 2px dashed var(--line);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 8px 0;
-  }
-
-  .tier-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .tier-image-placeholder {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
   .tier ul{
     list-style:none;
     padding:0;
@@ -556,7 +476,7 @@
   }
 
   .details-banner.open{
-    max-height:350px;
+    max-height:200px;
     opacity:1;
   }
 
@@ -582,16 +502,20 @@
   .tier-sidebar{
     display:flex;
     flex-direction:column;
-    align-items:center;
     gap:10px;
     align-self:center;
-    min-width:130px;
+    min-width:120px;
+  }
+
+  .tier-sidebar .btn{
+    padding:10px 16px;
+    font-size:0.7rem;
   }
 
   footer{
     padding:28px 32px;
     display:flex;
-    justify-space-between;
+    justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:12px;
@@ -602,6 +526,8 @@
     letter-spacing:0.04em;
     border-top:3px solid var(--berry);
     background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+    position:relative;
+    z-index:2;
   }
   .footer-contact{
     display:flex;
@@ -702,11 +628,10 @@
     .tier-sidebar{
       min-width:auto;
       flex-direction:row;
-      justify-content:space-between;
       align-self:stretch;
     }
-    .tier-image {
-      max-width: 100%;
+    .tier-sidebar .btn{
+      flex:1;
     }
   }
 </style>
@@ -756,21 +681,6 @@
         </div>
         <div class="tier-content">
           <div class="price">$10<span class="per">/ bag</span></div>
-          
-          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner">
-            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc...</p>
-          </div>
-
-          <!-- Photo Container -->
-          <div class="tier-image">
-            <!-- Replace src with your image path: <img src="peckalach.jpg" alt="Peckalach Bag"> -->
-            <span class="tier-image-placeholder">📷 Photo Here</span>
-          </div>
-
           <ul>
             <li>1 snack</li>
             <li>1 mini snack</li>
@@ -778,12 +688,17 @@
             <li>2 brand-packaged candies</li>
           </ul>
           <p class="moq-text">MOQ: 50</p>
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner">
+            <p><strong>Snack</strong> = packaged cookies, crackers, or dried goods | <strong>Drink</strong> = juice box or water bottle</p>
+          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">STANDARD</div>
-          <a href="contact.html" class="bag-btn">
-            <span class="bag-btn-label">Get A<br>Quote</span>
-          </a>
+          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
         </div>
       </div>
 
@@ -795,21 +710,6 @@
         </div>
         <div class="tier-content">
           <div class="price">$20<span class="per">/ bag</span></div>
-
-          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner featured">
-            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Specialty snack</strong> = Doritos, bissli, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc... | <strong>Specialty candy</strong> = Sour belts, big box Mike and Ike, spray candy, etc... | <strong>Loose candies</strong> = Zaza, sour chews, atomics, etc... | <strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
-          </div>
-
-          <!-- Photo Container -->
-          <div class="tier-image">
-            <!-- Replace src with your image path: <img src="classic.jpg" alt="Classic Bag"> -->
-            <span class="tier-image-placeholder">📷 Photo Here</span>
-          </div>
-
           <ul>
             <li>1 specialty snack</li>
             <li>2 snacks</li>
@@ -821,12 +721,17 @@
             <li>1 small prize</li>
           </ul>
           <p class="moq-text">MOQ: 50</p>
+          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner featured">
+            <p><strong>Specialty Snack</strong> = premium items like nuts, dried fruit, or gourmet popcorn | <strong>Mini Snack</strong> = single-serve crackers or chips | <strong>Brand-packaged</strong> = commercial candies | <strong>Specialty Candies</strong> = imported or artisanal sweets</p>
+          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MOST<br>ORDERED</div>
-          <a href="contact.html" class="bag-btn">
-            <span class="bag-btn-label">Get A<br>Quote</span>
-          </a>
+          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
         </div>
       </div>
 
@@ -838,21 +743,6 @@
         </div>
         <div class="tier-content">
           <div class="price">$40<span class="per">/ bag</span></div>
-
-          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner">
-            <p><strong>Snack</strong> = Popcorn, corn pops, onion rings, potato chips, etc... | <strong>Specialty snack</strong> = Doritos, bissli, etc... | <strong>Mini snack</strong> = Pretzels, wafer, pop-ummms, etc... | <strong>Drink</strong> = Box drink or mini bottle/soda | <strong>Branded candy</strong> = Laffy Taffy ropes, Fruit by the Foot, Mike and Ike, etc... | <strong>Prize</strong> = Non-Muktza prizes suitable for ages 3-12</p>
-          </div>
-
-          <!-- Photo Container -->
-          <div class="tier-image">
-            <!-- Replace src with your image path: <img src="deluxe.jpg" alt="Deluxe Bag"> -->
-            <span class="tier-image-placeholder">📷 Photo Here</span>
-          </div>
-
           <ul>
             <li>2 specialty snacks</li>
             <li>3 snacks</li>
@@ -864,12 +754,17 @@
           </ul>
           <p class="moq-text">Order deadline: Tzom Gedaliah</p>
           <p class="moq-text">MOQ: 50</p>
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner">
+            <p><strong>Specialty Snack</strong> = premium items like nuts, dried fruit, or gourmet popcorn | <strong>Mini Snack</strong> = single-serve crackers or chips | <strong>Small Prize</strong> = stickers or small toys | <strong>Big Prize</strong> = premium toy or collectible</p>
+          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">TOP<br>TIER</div>
-          <a href="contact.html" class="bag-btn">
-            <span class="bag-btn-label">Get A<br>Quote</span>
-          </a>
+          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
         </div>
       </div>
 
@@ -881,32 +776,22 @@
         </div>
         <div class="tier-content">
           <div class="price">$?<span class="per">/ bag</span></div>
-
-          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner featured">
-            <p>Work with our team to mix and match <strong>snacks</strong>, <strong>specialty items</strong>, and <strong>prizes</strong> (Non-Muktza, ages 3-12) to create your perfect bag — pricing calculated based on your selections</p>
-          </div>
-
-          <!-- Photo Container -->
-          <div class="tier-image">
-            <!-- Replace src with your image path: <img src="build-a-bag.jpg" alt="Build A Bag"> -->
-            <span class="tier-image-placeholder">📷 Photo Here</span>
-          </div>
-
           <ul>
             <li>Snacks, treats, prizes</li>
             <li>Customize your own goodie bags</li>
           </ul>
           <p class="moq-text">MOQ: 100 bags</p>
+          <button class="details-toggle featured" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner featured">
+            <p>Work with our team to mix and match <strong>snacks</strong>, <strong>specialty items</strong>, and <strong>prizes</strong> to create your perfect bag — pricing calculated based on your selections</p>
+          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">NEW<br>ITEM!</div>
-          <a href="build-a-bag.html" class="bag-btn">
-            <span class="bag-btn-label">Design<br>Bag</span>
-          </a>
+          <a href="build-a-bag.html" class="btn btn-primary">Design Your Bag</a>
         </div>
       </div>
     </div>
@@ -930,32 +815,22 @@
         </div>
         <div class="tier-content">
           <div class="price"><span class="per">From</span> $1<span class="per">/ bag</span></div>
-
-          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
-            <span class="details-toggle-arrow">↓</span>
-            Details
-          </button>
-          <div class="details-banner">
-            <p>Contents may include <strong>mini snacks</strong> (pretzels, wafers, pop-ummms) or <strong>loose candies</strong> (Zaza, sour chews, atomics) depending on your selection and budget</p>
-          </div>
-
-          <!-- Photo Container -->
-          <div class="tier-image">
-            <!-- Replace src with your image path: <img src="organza.jpg" alt="Organza Bag"> -->
-            <span class="tier-image-placeholder">📷 Photo Here</span>
-          </div>
-
           <p style="color:var(--muted); font-size:0.85rem; line-height:1.5; margin:0;">A pocket-sized favor bag with a handful of treats — great for individual gifting or a table centerpiece bowl.</p>
           <ul>
             <li>Handful of treats</li>
           </ul>
           <p class="moq-text">MOQ: 50 pc</p>
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span>
+            Details
+          </button>
+          <div class="details-banner">
+            <p>Contents may include <strong>candies</strong>, <strong>mini snacks</strong>, or <strong>seasonal treats</strong> depending on your selection and budget</p>
+          </div>
         </div>
         <div class="tier-sidebar">
           <div class="stamp">MINI</div>
-          <a href="contact.html" class="bag-btn">
-            <span class="bag-btn-label">Get A<br>Quote</span>
-          </a>
+          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
         </div>
       </div>
     </div>
