@@ -43,7 +43,7 @@
     left:0;
     right:0;
     bottom:0;
-    background:rgba(237,225,190,0.87);
+    background:rgba(237,225,190,0.55);
     pointer-events:none;
     z-index:1;
   }
@@ -275,7 +275,7 @@
   }
   
   .tier{
-    background:rgba(249,242,222,0.95);
+    background:rgba(249,242,222,0.92);
     border:2px solid var(--line);
     border-radius:12px;
     padding:20px 24px;
@@ -284,9 +284,8 @@
     grid-template-columns:200px 1fr auto;
     gap:20px;
     align-items:center;
-    box-shadow:0 8px 24px rgba(56,42,31,0.15);
+    box-shadow:0 8px 24px rgba(56,42,31,0.12);
     transition:all .3s ease;
-    backdrop-filter:blur(10px);
   }
 
   .tier:hover{
@@ -592,6 +591,8 @@
     letter-spacing:0.06em;
     position:relative;
     overflow:hidden;
+    z-index:100;
+    box-shadow:0 4px 12px rgba(255,107,157,0.4);
   }
 
   .promo-banner::before{
