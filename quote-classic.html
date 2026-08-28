@@ -1,33 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Request — Classic Bag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kraft: #EDE1BE; --ink: #382A1F; --berry: #8C2F39;
+    --candy-pink: #FF6B9D; --candy-purple: #D946A6; --muted: #8A7860;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--kraft); color: var(--ink); font-family: 'Karla', sans-serif; padding: 40px 20px; }
+  .form-card { max-width: 600px; margin: 0 auto; background: #FFFBF2; border: 3px solid var(--candy-pink); border-radius: 16px; padding: 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  h1 { font-family: 'Bricolage Grotesque', sans-serif; margin-top: 0; }
+  .back-link { display: inline-block; margin-bottom: 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--muted); text-decoration: none; }
+  .field { margin-bottom: 20px; }
+  label { display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
+  input, textarea, select { width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 1rem; }
+  .btn-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple)); color: white; border: none; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+  .btn-submit:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<div class="form-card">
+  <a href="bags.html" class="back-link">← Back to Collection</a>
+  <h1>Request Quote: Classic Bag</h1>
+  <p>Base Price: $20 / bag • MOQ: 50</p>
+  
+  <form id="quote-form">
+    <div class="field">
+      <label>Full Name *</label>
+      <input type="text" id="user_name" required>
+    </div>
+    
+    <div class="field">
+      <label>Email Address *</label>
+      <input type="email" id="user_email" required>
+    </div>
+
+    <div class="field">
+      <label>Phone Number *</label>
+      <input type="tel" id="user_phone" required>
+    </div>
+
+    <div class="field">
+      <label>Shipping Address *</label>
+      <input type="text" id="user_address" required>
+    </div>
+
+    <div class="field">
+      <label>Shul / Organization Name *</label>
+      <input type="text" id="shul_name" required>
+    </div>
+
+    <div class="field">
+      <label>Quantity Needed (Min 50) *</label>
+      <input type="number" id="quantity" min="50" value="50" required>
+    </div>
+
+    <div class="field">
+      <label>Notes / Special Requests</label>
+      <textarea id="notes" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit" id="submit-btn">Submit Quote Request</button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-document.getElementById('quote-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.innerText = 'Sending...';
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
 
-  const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
-  const qty = parseInt(document.getElementById('quantity').value) || 50;
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('quote-form');
+    if (!form) return;
 
-  const params = {
-    quote_id: randomQuoteId,
-    package_name: 'Classic Goodie Bag',
-    image_url: 'https://yourwebsite.com/images/classic.jpg', // Replace with your image link
-    base_price: '$20 / bag',
-    quantity: qty,
-    estimated_total: '$' + (qty * 20),
-    from_name: document.getElementById('user_name').value,
-    reply_to: document.getElementById('user_email').value,
-    phone: document.getElementById('user_phone').value,
-    shul_name: document.getElementById('shul_name').value,
-    notes: document.getElementById('notes').value || 'None'
-  };
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = document.getElementById('submit-btn');
+      if (btn) btn.innerText = 'Sending...';
 
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
-    .then(() => {
-      alert('Quote request sent! Your quote ID is #' + randomQuoteId);
-      window.location.href = 'bags.html';
-    }, (error) => {
-      alert('Failed to send request: ' + JSON.stringify(error));
-      btn.innerText = 'Submit Quote Request';
+      const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
+      const qtyInput = document.getElementById('quantity');
+      const qty = qtyInput ? (parseInt(qtyInput.value) || 50) : 50;
+
+      const params = {
+        quote_id: randomQuoteId,
+        package_name: 'Classic Goodie Bag',
+        image_url: 'https://yourwebsite.com/images/classic.jpg',
+        base_price: '$20 / bag',
+        quantity: qty,
+        estimated_total: '$' + (qty * 20),
+        from_name: document.getElementById('user_name')?.value || '',
+        reply_to: document.getElementById('user_email')?.value || '',
+        phone: document.getElementById('user_phone')?.value || '',
+        address: document.getElementById('user_address')?.value || '',
+        shul_name: document.getElementById('shul_name')?.value || '',
+        notes: document.getElementById('notes')?.value || 'None'
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+        .then(function() {
+          alert('Quote request sent! Your quote ID is #' + randomQuoteId);
+          window.location.href = 'bags.html';
+        })
+        .catch(function(error) {
+          console.error('EmailJS Error:', error);
+          alert('Failed to send request: ' + JSON.stringify(error));
+          if (btn) btn.innerText = 'Submit Quote Request';
+        });
     });
-});
+  });
 </script>
+</body>
+</html>
