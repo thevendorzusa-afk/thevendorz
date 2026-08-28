@@ -373,4 +373,450 @@
   }
 
   .tier-sub{
-    font-family
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    display:block;
+    font-weight:800;
+    letter-spacing:0.04em;
+  }
+
+  /* Content area holds words, photo, and button sequentially */
+  .tier-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  /* PHOTO BOX INSIDE TEXT FLOW */
+  .tier-photo{
+    width:100%;
+    min-height:140px;
+    border:2px dashed var(--muted);
+    border-radius:10px;
+    background:rgba(56,42,31,0.04);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    transition:all .2s ease;
+  }
+
+  .tier-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .tier-photo-placeholder{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-align:center;
+    text-transform:uppercase;
+    padding:12px;
+    font-weight:700;
+  }
+
+  .stamp{
+    padding:6px 12px;
+    border:2px solid var(--candy-pink);
+    border-radius:6px;
+    color:var(--candy-pink);
+    font-family:'Space Mono',monospace;
+    font-size:0.5rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-align:center;
+    transform:rotate(-4deg);
+    flex-shrink:0;
+    font-weight:800;
+    background:rgba(255,107,157,0.08);
+    display:inline-block;
+  }
+
+  .tier-deluxe .stamp{
+    border-color:var(--candy-mint);
+    color:var(--candy-mint);
+    background:rgba(94,204,192,0.15);
+    box-shadow:0 0 10px rgba(94,204,192,0.3);
+  }
+
+  .price{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:1.5rem;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    white-space:nowrap;
+  }
+
+  .price .per{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    color:var(--muted);
+    background:none;
+    -webkit-text-fill-color:unset;
+  }
+
+  .tier ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .tier ul li{
+    font-size:0.88rem;
+    padding-left:20px;
+    position:relative;
+    line-height:1.4;
+    font-weight:600;
+  }
+
+  .tier ul li::before{
+    content:"✨";
+    position:absolute;
+    left:0;
+    font-size:0.75rem;
+  }
+
+  .moq-text{
+    font-size:0.68rem;
+    color:var(--berry);
+    text-transform:uppercase;
+    margin:0;
+    font-family:'Space Mono',monospace;
+    font-weight:800;
+    letter-spacing:0.04em;
+  }
+  .tier-deluxe .moq-text{ color:var(--candy-pink); }
+
+  .details-toggle{
+    background:none;
+    border:none;
+    padding:0;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-weight:900;
+    color:var(--candy-pink);
+  }
+
+  .details-banner{
+    background:rgba(255,107,157,0.08);
+    border-left:4px solid var(--candy-pink);
+    padding:10px 12px;
+    border-radius:6px;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .3s ease, opacity .3s ease;
+  }
+
+  .details-banner.open{
+    max-height:200px;
+    opacity:1;
+  }
+
+  .details-banner p{
+    margin:0;
+    font-size:0.75rem;
+    line-height:1.4;
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-weight:800;
+  }
+
+  footer{
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    border-top:3px solid var(--berry);
+    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+    position:relative;
+    z-index:2;
+  }
+  .footer-contact{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .footer-contact a{
+    text-decoration:none;
+    color:var(--muted);
+  }
+
+  .promo-banner{
+    background:linear-gradient(90deg, var(--candy-pink) 0%, var(--candy-purple) 50%, var(--candy-mint) 100%);
+    color:white;
+    padding:16px 32px;
+    text-align:center;
+    font-weight:700;
+    font-family:'Space Mono',monospace;
+    font-size:0.9rem;
+    text-transform:uppercase;
+    position:relative;
+    overflow:hidden;
+    z-index:100;
+  }
+
+  @media (max-width:840px){
+    .tier{
+      flex-direction:column;
+      gap:16px;
+    }
+    .tier-header, .tier-content{
+      width:100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="promo-banner">🎉 10% OFF all orders placed before Rosh Hashana 🎉</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-slot">
+      <div class="logo-placeholder">LOGO</div>
+      <div class="brand">THE <span class="mark">VENDORZ</span></div>
+    </a>
+    <nav class="tabs">
+      <a href="index.html">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#organza">Organza Bags</a>
+    </nav>
+    <a href="contact.html" class="btn btn-ghost" style="padding:8px 16px; width:auto;">Get a Quote</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <div class="eyebrow">✨ This year's collection ✨</div>
+    <h1>Simchat Torah goodie bags, all in one place.</h1>
+    <p>Pick a package for your whole shul, or add on individual organza favor bags for a smaller group or special request.</p>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">🎉 This Year's Collection</span>
+      <h2>Simchat Torah,<br>packed three ways.</h2>
+      <p class="section-desc">Every bag is built for the holiday — sized and priced for your shul's order.</p>
+    </div>
+
+    <div class="tiers">
+
+      <div class="tier tier-peckalach">
+        <div class="tier-header">
+          <h3 class="tier-name">Peckalach</h3>
+          <span class="tier-sub">Goodie Bag</span>
+          <div style="margin-top:12px;"><span class="stamp">STANDARD</span></div>
+        </div>
+
+        <div class="tier-content">
+          <div class="price">$10<span class="per">/ bag</span></div>
+          <ul>
+            <li>1 snack</li>
+            <li>1 mini snack</li>
+            <li>1 drink</li>
+            <li>2 brand-packaged candies</li>
+          </ul>
+          <p class="moq-text">MOQ: 50</p>
+          
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span> Details
+          </button>
+          <div class="details-banner">
+            <p><strong>Snack</strong> = packaged cookies, crackers | <strong>Drink</strong> = juice box</p>
+          </div>
+
+          <div class="tier-photo">
+            <span class="tier-photo-placeholder">Photo Box</span>
+          </div>
+
+          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="tier tier-classic">
+        <div class="tier-header">
+          <h3 class="tier-name">Classic</h3>
+          <span class="tier-sub">Goodie Bag</span>
+          <div style="margin-top:12px;"><span class="stamp">MOST ORDERED</span></div>
+        </div>
+
+        <div class="tier-content">
+          <div class="price">$20<span class="per">/ bag</span></div>
+          <ul>
+            <li>1 specialty snack</li>
+            <li>2 snacks</li>
+            <li>2 mini snacks</li>
+            <li>1 drink</li>
+            <li>3 brand-packaged candies</li>
+            <li>3 specialty candies</li>
+            <li>Loose candy &amp; 1 small prize</li>
+          </ul>
+          <p class="moq-text">MOQ: 50</p>
+          
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span> Details
+          </button>
+          <div class="details-banner">
+            <p><strong>Specialty Snack</strong> = premium items | <strong>Specialty Candies</strong> = imported sweets</p>
+          </div>
+
+          <div class="tier-photo">
+            <span class="tier-photo-placeholder">Photo Box</span>
+          </div>
+
+          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="tier tier-deluxe">
+        <div class="tier-header">
+          <h3 class="tier-name">Deluxe</h3>
+          <span class="tier-sub">Goodie Bag</span>
+          <div style="margin-top:12px;"><span class="stamp">VIP TOP TIER</span></div>
+        </div>
+
+        <div class="tier-content">
+          <div class="price" style="background:linear-gradient(135deg, var(--candy-mint), var(--candy-pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">$40<span class="per" style="color:var(--candy-mint);">/ bag</span></div>
+          <ul>
+            <li>2 specialty snacks</li>
+            <li>3 snacks &amp; 3 mini snacks</li>
+            <li>1 drink</li>
+            <li>4 brand-package candies</li>
+            <li>1 small prize &amp; 1 big prize</li>
+            <li>Custom logo drawstring bag</li>
+          </ul>
+          <p class="moq-text">Order deadline: Tzom Gedaliah • MOQ: 50</p>
+          
+          <button class="details-toggle" style="color:var(--candy-mint);" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span> Details
+          </button>
+          <div class="details-banner" style="background:rgba(94,204,192,0.1); border-left-color:var(--candy-mint);">
+            <p style="color:#FFF;"><strong>Big Prize</strong> = premium toy or collectible</p>
+          </div>
+
+          <div class="tier-photo">
+            <span class="tier-photo-placeholder" style="color:var(--candy-mint);">Photo Box</span>
+          </div>
+
+          <a href="contact.html" class="btn btn-deluxe">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="tier tier-custom">
+        <div class="tier-header">
+          <h3 class="tier-name">Build-A-Bag</h3>
+          <span class="tier-sub">Custom</span>
+          <div style="margin-top:12px;"><span class="stamp" style="border-color:var(--candy-lime); color:var(--ink);">NEW ITEM!</span></div>
+        </div>
+
+        <div class="tier-content">
+          <div class="price">$?<span class="per">/ bag</span></div>
+          <ul>
+            <li>Snacks, treats, prizes</li>
+            <li>Customize your own goodie bags</li>
+          </ul>
+          <p class="moq-text">MOQ: 100 bags</p>
+          
+          <button class="details-toggle" aria-expanded="false" onclick="toggleDetails(this)">
+            <span class="details-toggle-arrow">↓</span> Details
+          </button>
+          <div class="details-banner">
+            <p>Mix and match your choice of treats and prizes.</p>
+          </div>
+
+          <div class="tier-photo">
+            <span class="tier-photo-placeholder">Photo Box</span>
+          </div>
+
+          <a href="build-a-bag.html" class="btn btn-primary" style="background:linear-gradient(135deg, var(--candy-lime), var(--candy-mint)); color:var(--ink);">Design Your Bag</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="organza">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">✨ Add-On</span>
+      <h2>Organza Bag Orders</h2>
+    </div>
+
+    <div class="tiers">
+      <div class="tier tier-peckalach">
+        <div class="tier-header">
+          <h3 class="tier-name">Organza Bag</h3>
+          <span class="tier-sub">Add-On</span>
+        </div>
+
+        <div class="tier-content">
+          <div class="price"><span class="per">From</span> $1<span class="per">/ bag</span></div>
+          <ul>
+            <li>Handful of treats</li>
+          </ul>
+          <p class="moq-text">MOQ: 50 pc</p>
+          
+          <div class="tier-photo">
+            <span class="tier-photo-placeholder">Photo Box</span>
+          </div>
+
+          <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 The Vendorz</div>
+  <div class="footer-contact">
+    <a href="tel:+16467701541">(646) 770-1541</a>
+  </div>
+</footer>
+
+<script>
+function toggleDetails(button) {
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', !isExpanded);
+  
+  const banner = button.nextElementSibling;
+  banner.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
