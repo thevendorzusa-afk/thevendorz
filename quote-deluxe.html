@@ -238,7 +238,7 @@
   <div class="form-card">
     <a href="bags.html" class="back-link">← Return to Collection</a>
     <h1>Deluxe Package Quote</h1>
-    <p class="subtitle">Base Price: $22 / bag • Minimum Order: 50 units</p>
+    <p class="subtitle">Base Price: $30 / bag • Minimum Order: 50 units</p>
     
     <form id="quote-form">
       <div class="field">
@@ -316,7 +316,8 @@
 
     const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
     const qty = parseInt(document.getElementById('quantity').value) || 50;
-    const subtotal = qty * 22;
+    const unitPrice = 30;
+    const subtotal = qty * unitPrice;
     const discount = subtotal * 0.10;
     const total = subtotal - discount;
 
@@ -326,7 +327,7 @@
       is_pecalach: false,
       is_classic: false,
       is_deluxe: true,
-      base_price: '$22 / bag',
+      base_price: '$' + unitPrice + ' / bag',
       quantity: qty,
       subtotal: '$' + subtotal.toFixed(2),
       discount_amount: '-$' + discount.toFixed(2),
