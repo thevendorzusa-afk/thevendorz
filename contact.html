@@ -381,12 +381,6 @@
     color:var(--candy-pink);
     font-weight:700;
   }
-  .social-icon{
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
-    font-size:0.9rem;
-  }
 
   .social-link{
     display:inline-flex;
@@ -428,10 +422,11 @@
     letter-spacing:0.06em;
     position:relative;
     overflow:hidden;
+    z-index:100;
   }
 
   .promo-banner::before{
-    content:"🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders if placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉";
+    content:"🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉";
     position:absolute;
     left:0;
     top:50%;
@@ -500,8 +495,10 @@
     <nav class="tabs">
       <a href="index.html">Home</a>
       <a href="bags.html">This Year's Bags</a>
-      <a href="#contact">Contact</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <a href="contact.html" class="btn btn-ghost" style="padding:8px 16px;">Get a Quote</a>
   </div>
 </header>
 
@@ -594,7 +591,7 @@
 
     <script>
       (function() {
-        emailjs.init("S9GBrLHFP_VYD68RT"); // Replace with your Public Key
+        emailjs.init("S9GBrLHFP_VYD68RT");
       })();
 
       document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -634,9 +631,12 @@
 <footer>
   <div>© 2026 The Vendorz</div>
   <div class="footer-contact">
+    <a href="tel:+16467701541">(646) 770-1541</a>
+    <span style="color:var(--line);">—</span>
     <a href="https://wa.me/16467701541" class="social-link" target="_blank">
       <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.082.365-2.906 1.009l-.208.126-2.155-.564.574 2.084.13.208c-.704.922-1.077 1.988-1.077 3.116 0 2.88 2.353 5.233 5.233 5.233 1.394 0 2.707-.54 3.697-1.524 1.106-1.126 1.716-2.655 1.716-4.261 0-2.88-2.353-5.233-5.233-5.233m4.335-3.543C15.9 2.134 12.6 1 9.26 1 5.13 1 1.969 4.161 1.969 8.29c0 1.532.382 3.02 1.105 4.287L1.07 23.16l4.95-1.298C7.618 22.75 9.26 23.162 9.26 23.162c3.905 0 7.735-1.806 10.141-4.908 2.406-3.102 3.131-7.243 1.905-11.028C19.769 4.44 17.708 2.839 15.974 1.839" fill="#25D366"/>
+        <circle cx="12" cy="12" r="11" fill="#25D366"/>
+        <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
       </svg>
       <span>WhatsApp</span>
     </a>
