@@ -1,3 +1,6 @@
+Here is the updated **`quote-deluxe.html`** with the full gold, luxury-themed styling matching the fancy design from last time:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,144 +9,227 @@
 <title>Quote Request — Deluxe Bag</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Mono:wght@400;700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --kraft: #EDE1BE; --ink: #382A1F; --berry: #8C2F39;
-    --candy-pink: #FF6B9D; --candy-purple: #D946A6; --muted: #8A7860;
-    --line: rgba(56,42,31,0.22);
+    --gold-primary: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-dark: #AA7C11;
+    --bg-dark: #0D0D0D;
+    --card-bg: #141414;
+    --card-border: #2A2415;
+    --text-gold: #E6C687;
+    --text-muted: #A3957A;
+    --input-bg: #1C1917;
+    --candy-pink: #FF6B9D;
+    --candy-purple: #D946A6;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--kraft); color: var(--ink); font-family: 'Karla', sans-serif; }
+  body { 
+    margin: 0; 
+    background-color: var(--bg-dark); 
+    color: var(--text-gold); 
+    font-family: 'Karla', sans-serif; 
+    background-image: radial-gradient(circle at 50% 0%, #1F190D 0%, #0D0D0D 70%);
+    min-height: 100vh;
+  }
   html { scroll-behavior: smooth; }
-  .mono{ font-family:'Space Mono',monospace; letter-spacing:0.02em; }
-  h1 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; letter-spacing: -0.01em; }
-  a { color: inherit; }
+  
+  h1 { 
+    font-family: 'Cinzel', serif; 
+    font-weight: 700; 
+    letter-spacing: 0.05em; 
+    background: linear-gradient(135deg, #FFF0CA 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.05rem;
+  }
 
   .promo-banner{
-    background:linear-gradient(90deg, var(--candy-pink) 0%, var(--candy-purple) 50%, #5ECCC0 100%);
-    color:white;
-    padding:16px 32px;
-    text-align:center;
-    font-weight:700;
-    font-family:'Space Mono',monospace;
-    font-size:0.9rem;
-    text-transform:uppercase;
-    position:relative;
-    overflow:hidden;
-    z-index:100;
+    background: linear-gradient(90deg, #8A6D1B 0%, #D4AF37 50%, #8A6D1B 100%);
+    color: #0D0D0D;
+    padding: 14px 32px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   }
 
   .promo-banner::before{
-    content:"🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉";
-    position:absolute;
-    left:0;
-    top:50%;
-    transform:translateY(-50%);
-    white-space:nowrap;
-    animation:scroll-banner 20s linear infinite;
+    content: "✨ 10% OFF ALL DELUXE ORDERS PLACED BEFORE ROSH HASHANA ✨  •  ✨ 10% OFF ALL DELUXE ORDERS PLACED BEFORE ROSH HASHANA ✨  •  ✨ 10% OFF ALL DELUXE ORDERS PLACED BEFORE ROSH HASHANA ✨";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    animation: scroll-banner 22s linear infinite;
   }
 
   @keyframes scroll-banner {
-    0% { transform:translateX(0) translateY(-50%); }
-    100% { transform:translateX(-33.33%) translateY(-50%); }
+    0% { transform: translateX(0) translateY(-50%); }
+    100% { transform: translateX(-33.33%) translateY(-50%); }
   }
 
-  .promo-banner::after{
-    content:"";
-    position:absolute;
-    top:0;
-    right:0;
-    width:100px;
-    height:100%;
-    background:linear-gradient(90deg, transparent, var(--candy-pink), var(--candy-purple), #5ECCC0);
-    pointer-events:none;
-  }
-
-  .main-content { padding: 40px 20px; min-height: calc(100vh - 200px); }
-  .form-card { max-width: 600px; margin: 0 auto; background: #FFFBF2; border: 3px solid var(--candy-pink); border-radius: 16px; padding: 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-  .back-link { display: inline-block; margin-bottom: 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color .15s ease; }
-  .back-link:hover { color: var(--candy-pink); }
-  .field { margin-bottom: 20px; }
-  label { display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
-  input, textarea { width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 1rem; transition: all .2s ease; }
-  input:focus, textarea:focus { outline: none; border-color: var(--candy-pink); box-shadow: 0 0 0 3px rgba(255,107,157,0.1); }
+  .main-content { padding: 50px 20px; min-height: calc(100vh - 180px); }
   
+  .form-card { 
+    max-width: 620px; 
+    margin: 0 auto; 
+    background: var(--card-bg); 
+    border: 1px solid var(--gold-primary); 
+    border-radius: 12px; 
+    padding: 40px; 
+    box-shadow: 0 12px 40px rgba(0,0,0,0.8), inset 0 0 15px rgba(212, 175, 55, 0.05); 
+    position: relative;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(135deg, var(--gold-primary), transparent 40%, transparent 60%, var(--gold-dark));
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  .back-link { 
+    display: inline-block; 
+    margin-bottom: 24px; 
+    font-family: 'Space Mono', monospace; 
+    font-size: 0.75rem; 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color .2s ease; 
+  }
+  .back-link:hover { color: var(--gold-light); }
+
+  .field { margin-bottom: 22px; }
+  
+  label { 
+    display: block; 
+    font-family: 'Space Mono', monospace; 
+    font-size: 0.72rem; 
+    text-transform: uppercase; 
+    margin-bottom: 8px; 
+    color: var(--gold-light);
+    letter-spacing: 0.06em;
+  }
+
+  input, textarea { 
+    width: 100%; 
+    padding: 14px; 
+    background: var(--input-bg);
+    border: 1px solid var(--card-border); 
+    border-radius: 6px; 
+    color: #FFF;
+    font-family: inherit; 
+    font-size: 0.95rem; 
+    transition: all .25s ease; 
+  }
+
+  input:focus, textarea:focus { 
+    outline: none; 
+    border-color: var(--gold-primary); 
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25); 
+    background: #221F1B;
+  }
+
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 13px 24px;
+    padding: 16px 28px;
     width: 100%;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.76rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.12em;
     text-decoration: none;
-    border-radius: 8px;
-    transition: all .2s ease;
+    border-radius: 6px;
+    transition: all .3s ease;
     font-weight: 700;
-    border: 2px solid transparent;
     cursor: pointer;
+    margin-top: 10px;
   }
+
   .btn-primary {
-    background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
-    color: white;
-    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+    background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    background-size: 200% auto;
+    color: #0D0D0D;
+    border: none;
+    box-shadow: 0 4px 20px rgba(170, 124, 17, 0.4);
   }
+
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+    background-position: right center;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+    transform: translateY(-1px);
   }
-  .btn-primary:active { transform: scale(0.97); }
+
+  .btn-primary:active { transform: scale(0.98); }
 
   footer{
-    padding:28px 32px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:12px;
-    font-family:'Space Mono',monospace;
-    font-size:0.7rem;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    border-top:3px solid var(--berry);
-    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--card-border);
+    background: #080808;
   }
+
   .footer-contact{
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-    align-items:center;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
   }
+
   .footer-contact a{
-    text-decoration:none;
-    transition:all .15s ease;
-    color:var(--muted);
+    text-decoration: none;
+    transition: all .2s ease;
+    color: var(--text-muted);
   }
+
   .footer-contact a:hover{
-    color:var(--candy-pink);
-    font-weight:700;
+    color: var(--gold-light);
   }
 
   .social-link{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    transition:all .15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .social-logo{
-    width:18px;
-    height:18px;
-    display:block;
-  }
-
-  .social-link:hover .social-logo{
-    transform:scale(1.2);
+    width: 16px;
+    height: 16px;
+    display: block;
   }
 </style>
 </head>
@@ -153,9 +239,9 @@
 
 <div class="main-content">
   <div class="form-card">
-    <a href="bags.html" class="back-link">← Back to Collection</a>
-    <h1>Request Quote: Deluxe Bag</h1>
-    <p>Base Price: $22 / bag • MOQ: 50</p>
+    <a href="bags.html" class="back-link">← Return to Collection</a>
+    <h1>Deluxe Package Quote</h1>
+    <p class="subtitle">Base Price: $22 / bag • Minimum Order: 50 units</p>
     
     <form id="quote-form">
       <div class="field">
@@ -189,20 +275,20 @@
       </div>
 
       <div class="field">
-        <label for="notes">Notes / Special Requests</label>
+        <label for="notes">Bespoke Requests / Event Details</label>
         <textarea id="notes" rows="3"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary" id="submit-btn">Submit Quote Request</button>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Request Custom Quote</button>
     </form>
   </div>
 </div>
 
 <footer>
-  <div>© 2026 The Vendorz</div>
+  <div>© 2026 The Vendorz • Luxe Edition</div>
   <div class="footer-contact">
     <a href="tel:+16467701541">(646) 770-1541</a>
-    <span style="color:var(--line);">—</span>
+    <span style="color: var(--card-border);">—</span>
     <a href="https://wa.me/16467701541" class="social-link" target="_blank">
       <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="11" fill="#25D366"/>
@@ -210,9 +296,9 @@
       </svg>
       <span>WhatsApp</span>
     </a>
-    <span style="color:var(--line);">—</span>
+    <span style="color: var(--card-border);">—</span>
     <a href="https://instagram.com/thevendorz" class="social-link" target="_blank">
-      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#E1306C">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
       </svg>
       <span>@thevendorz</span>
@@ -229,7 +315,7 @@
   document.getElementById('quote-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = document.getElementById('submit-btn');
-    if (btn) { btn.disabled = true; btn.innerText = 'Sending...'; }
+    if (btn) { btn.disabled = true; btn.innerText = 'Processing...'; }
 
     const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
     const qty = parseInt(document.getElementById('quantity').value) || 50;
@@ -258,14 +344,16 @@
 
     emailjs.send('service_ljmyd45', 'template_2cadmvf', params)
       .then(function() {
-        alert('Quote request sent! Your quote ID is #' + randomQuoteId);
-        if (btn) { btn.disabled = false; btn.innerText = 'Submit Quote Request'; }
+        alert('Deluxe Quote request submitted successfully! Quote ID: #' + randomQuoteId);
+        if (btn) { btn.disabled = false; btn.innerText = 'Request Custom Quote'; }
       })
       .catch(function(error) {
         alert('Failed to send request: ' + (error.text || JSON.stringify(error)));
-        if (btn) { btn.disabled = false; btn.innerText = 'Submit Quote Request'; }
+        if (btn) { btn.disabled = false; btn.innerText = 'Request Custom Quote'; }
       });
   });
 </script>
 </body>
 </html>
+
+```
