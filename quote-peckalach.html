@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -85,6 +85,7 @@
     transition: all .2s ease;
     font-weight: 700;
     border: 2px solid transparent;
+    cursor: pointer;
   }
   .btn-primary {
     background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
@@ -100,7 +101,7 @@
   footer{
     padding:28px 32px;
     display:flex;
-    justify-content:space-between;
+    justify-space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:12px;
@@ -232,14 +233,21 @@
 
     const randomQuoteId = 'Q-' + Math.floor(100000 + Math.random() * 900000);
     const qty = parseInt(document.getElementById('quantity').value) || 50;
+    const subtotal = qty * 10;
+    const discount = subtotal * 0.10;
+    const total = subtotal - discount;
 
     const params = {
       quote_id: randomQuoteId,
       package_name: 'Peckalach Goodie Bag',
-      image_url: 'https://yourwebsite.com/images/peckalach.jpg',
+      is_pecalach: true,
+      is_classic: false,
+      is_deluxe: false,
       base_price: '$10 / bag',
       quantity: qty,
-      estimated_total: '$' + (qty * 10),
+      subtotal: '$' + subtotal.toFixed(2),
+      discount_amount: '-$' + discount.toFixed(2),
+      estimated_total: '$' + total.toFixed(2),
       from_name: document.getElementById('user_name').value,
       reply_to: document.getElementById('user_email').value,
       phone: document.getElementById('user_phone').value,
