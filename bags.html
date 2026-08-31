@@ -73,35 +73,6 @@
     gap:12px;
     text-decoration:none;
   }
-  .logo-placeholder{
-    width:38px;
-    height:26px;
-    background:linear-gradient(135deg, var(--mustard) 0%, var(--candy-pink) 100%);
-    border-radius:2px 9px 2px 2px;
-    transform:rotate(-6deg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Space Mono',monospace;
-    font-size:0.45rem;
-    color:white;
-    text-transform:uppercase;
-    flex-shrink:0;
-    position:relative;
-    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
-  }
-  .logo-placeholder::after{
-    content:"";
-    position:absolute;
-    left:6px;
-    top:50%;
-    width:4px;
-    height:4px;
-    background:white;
-    border-radius:50%;
-    transform:translateY(-50%);
-    box-shadow:0 0 0 1px var(--ink);
-  }
   .brand{
     font-family:'Bricolage Grotesque',sans-serif;
     font-weight:800;
@@ -336,12 +307,6 @@
     background:rgba(255,255,255,0.05);
   }
 
-  .tier-custom{
-    background:#FAFFF5;
-    border:3px dashed var(--candy-lime);
-    box-shadow:0 8px 24px rgba(164,214,94,0.25);
-  }
-
   .tier-header{
     display:flex;
     flex-direction:column;
@@ -564,7 +529,29 @@
   }
   .footer-contact a{
     text-decoration:none;
+    transition:all .15s ease;
     color:var(--muted);
+  }
+  .footer-contact a:hover{
+    color:var(--candy-pink);
+    font-weight:700;
+  }
+
+  .social-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:all .15s ease;
+  }
+
+  .social-logo{
+    width:18px;
+    height:18px;
+    display:block;
+  }
+
+  .social-link:hover .social-logo{
+    transform:scale(1.2);
   }
 
   .promo-banner{
@@ -599,7 +586,6 @@
 <header>
   <div class="header-inner">
     <a href="index.html" class="logo-slot">
-      <div class="logo-placeholder">LOGO</div>
       <div class="brand">THE <span class="mark">VENDORZ</span></div>
     </a>
     <nav class="tabs">
@@ -651,8 +637,8 @@
             <span class="details-toggle-arrow">↓</span> Details
           </button>
           <div class="details-banner">
-            <p><strong>Snack</strong> = Potato chips,Popcorn,Corn pops,Onion rings, etc...<strong>Mini sanck</strong> =Pretzels, wafer,etc... <strong>Drink</strong> = juice box or bottle/soda 
-            <strong>Branded candy</strong> =Laffy taffy rope, friut by the foot, gushers, etc...</p>
+            <p><strong>Snack</strong> = Potato chips, popcorn, corn pops, onion rings, etc... <strong>Mini snack</strong> = Pretzels, wafers, etc... <strong>Drink</strong> = Juice box or bottle/soda 
+            <strong>Branded candy</strong> = Laffy taffy rope, fruit by the foot, gushers, etc...</p>
           </div>
         </div>
 
@@ -688,9 +674,9 @@
             <span class="details-toggle-arrow">↓</span> Details
           </button>
           <div class="details-banner">
-            <p><strong>Snack</strong> = Potato chips,Popcorn,Corn pops,Onion rings, etc...<strong>Specialty snack</strong> = Doritos, bissli, etc...
-              <strong>Mini sanck</strong> =Pretzels, wafer,etc...<strong>Drink</strong> = juice box or bottle/soda 
-            <strong>Branded candy</strong> =Laffy taffy rope, friut by the foot, gushers, etc...| <strong>Specialty Candies</strong> = Sour belts, big box mike and ike, etc <strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
+            <p><strong>Snack</strong> = Potato chips, popcorn, corn pops, onion rings, etc... <strong>Specialty snack</strong> = Doritos, bissli, etc... 
+              <strong>Mini snack</strong> = Pretzels, wafers, etc... <strong>Drink</strong> = Juice box or bottle/soda 
+            <strong>Branded candy</strong> = Laffy taffy rope, fruit by the foot, gushers, etc... | <strong>Specialty Candies</strong> = Sour belts, big box Mike and Ike, etc... <strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
           </div>
         </div>
 
@@ -725,9 +711,9 @@
             <span class="details-toggle-arrow">↓</span> Details
           </button>
           <div class="details-banner" style="background:rgba(94,204,192,0.1); border-left-color:var(--candy-mint);">
-            <p style="color:#FFF;"><strong>Snack</strong> = Potato chips,Popcorn,Corn pops,Onion rings, etc...<strong>Specialty snack</strong> = Doritos, bissli, etc...
-              <strong>Mini sanck</strong> =Pretzels, wafer,etc...<strong>Drink</strong> = juice box or bottle/soda 
-            <strong>Branded candy</strong> =Laffy taffy rope, friut by the foot, gushers, etc...| <strong>Specialty Candies</strong> = Sour belts, big box mike and ike, etc<strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
+            <p style="color:#FFF;"><strong>Snack</strong> = Potato chips, popcorn, corn pops, onion rings, etc... <strong>Specialty snack</strong> = Doritos, bissli, etc... 
+              <strong>Mini snack</strong> = Pretzels, wafers, etc... <strong>Drink</strong> = Juice box or bottle/soda 
+            <strong>Branded candy</strong> = Laffy taffy rope, fruit by the foot, gushers, etc... | <strong>Specialty Candies</strong> = Sour belts, big box Mike and Ike, etc... <strong>Prize</strong> = Non-Muktza prize suitable for ages 3-12</p>
           </div>
         </div>
 
@@ -780,6 +766,20 @@
   <div>© 2026 The Vendorz</div>
   <div class="footer-contact">
     <a href="tel:+16467701541">(646) 770-1541</a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://wa.me/16467701541" class="social-link" target="_blank">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#25D366">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.84 0-3.647-.496-5.234-1.437l-.375-.223-3.892 1.02 1.038-3.793-.245-.39a10.08 10.08 0 0 1-1.547-5.385c0-5.568 4.53-10.098 10.096-10.098 2.698 0 5.235 1.05 7.142 2.959 1.907 1.908 2.956 4.446 2.955 7.144 0 5.569-4.531 10.103-10.098 10.103m0-18.176c-4.45 0-8.072 3.621-8.072 8.073 0 1.423.371 2.812 1.077 4.037l.168.292-.638 2.333 2.389-.627.283.168a8.04 8.04 0 0 0 4.193 1.173c4.451 0 8.073-3.622 8.073-8.074 0-2.157-.84-4.186-2.365-5.71-1.526-1.526-3.555-2.365-5.71-2.365"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://instagram.com/thevendorz" class="social-link" target="_blank">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#E1306C">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+      </svg>
+      <span>@thevendorz</span>
+    </a>
   </div>
 </footer>
 
