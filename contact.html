@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<!-- EmailJS SDK -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
   :root{
@@ -60,25 +59,29 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:16px 32px;
+    padding:18px 32px;
     max-width:1120px;
     margin:0 auto;
-    gap:24px;
   }
-  .logo-text{
-    font-family:'Bricolage Grotesque',sans-serif;
-    font-size:2.4rem;
-    font-weight:800;
-    color:var(--berry);
+  .logo-slot{
+    display:flex;
+    align-items:center;
+    gap:12px;
     text-decoration:none;
-    letter-spacing:-0.02em;
-    flex-grow:1;
-    display:inline-block;
-    transition:transform .2s ease, color .2s ease;
   }
-  .logo-text:hover{
-    color:var(--candy-pink);
-    transform:scale(1.01);
+  .brand{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:1.25rem;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .brand .mark{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
   }
   nav.tabs{
     display:flex;
@@ -455,7 +458,9 @@
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo-text">The Vendorz</a>
+    <a href="index.html" class="logo-slot">
+      <div class="brand">THE <span class="mark">VENDORZ</span></div>
+    </a>
     <nav class="tabs">
       <a href="index.html">Home</a>
       <a href="bags.html">This Year's Bags</a>
