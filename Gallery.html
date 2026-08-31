@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vendorz — Goodie Bags Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kraft: #EDE1BE;
+    --card: #F9F2DE;
+    --ink: #382A1F;
+    --berry: #8C2F39;
+    --mustard: #C98A2C;
+    --candy-pink: #FF6B9D;
+    --candy-lime: #A4D65E;
+    --candy-mint: #5ECCC0;
+    --candy-purple: #D946A6;
+    --muted: #8A7860;
+    --line: rgba(56,42,31,0.22);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--kraft);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'Space Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--kraft);
+    border-bottom:3px solid var(--berry);
+    box-shadow:0 2px 8px rgba(56,42,31,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .logo-slot{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+  }
+  .logo-placeholder{
+    width:38px;
+    height:26px;
+    background:linear-gradient(135deg, var(--mustard) 0%, var(--candy-pink) 100%);
+    border-radius:2px 9px 2px 2px;
+    transform:rotate(-6deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Mono',monospace;
+    font-size:0.45rem;
+    color:white;
+    text-transform:uppercase;
+    flex-shrink:0;
+    position:relative;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .logo-placeholder::after{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:50%;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    transform:translateY(-50%);
+    box-shadow:0 0 0 1px var(--ink);
+  }
+  .brand{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:1.25rem;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .brand .mark{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  nav.tabs{
+    display:flex;
+    gap:2px;
+  }
+  nav.tabs a{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    text-decoration:none;
+    color:var(--muted);
+    padding:10px 14px;
+    transition:color .15s ease;
+    border-radius:3px;
+  }
+  nav.tabs a:hover{
+    color:var(--candy-pink);
+    background:rgba(255,107,157,0.1);
+  }
+  @media (max-width:720px){
+    nav.tabs{display:none;}
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border-radius:8px;
+    transition:all .2s ease;
+    font-weight:700;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    color:white;
+    border:2px solid transparent;
+    box-shadow:0 4px 12px rgba(255, 107, 157, 0.3);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255, 107, 157, 0.4);
+  }
+  .btn-ghost{
+    color:var(--ink);
+    border:2px solid var(--candy-pink);
+    background:transparent;
+  }
+  .btn-ghost:hover{ 
+    background:var(--candy-pink);
+    color:white;
+    transform:translateY(-2px);
+  }
+
+  .page-hero{
+    padding:64px 32px 48px;
+    border-bottom:2px dashed var(--candy-lime);
+  }
+  .page-hero .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    margin-bottom:20px;
+    font-weight:700;
+  }
+  .page-hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.1rem);
+    line-height:1.08;
+    margin:0 0 16px;
+    max-width:18ch;
+  }
+  .page-hero p{
+    font-size:1.02rem;
+    line-height:1.6;
+    color:var(--muted);
+    max-width:52ch;
+    margin:0;
+  }
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--muted);
+    text-decoration:none;
+    margin-bottom:24px;
+    transition:color .15s ease;
+  }
+  .back-link:hover{ color:var(--candy-pink); }
+
+  .gallery-section{
+    padding:72px 32px;
+    border-bottom:2px dashed var(--line);
+  }
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:24px;
+    margin-top:32px;
+  }
+
+  .gallery-item{
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--card);
+    border:2px solid var(--line);
+    transition:all .3s ease;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(56,42,31,0.08);
+  }
+
+  .gallery-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 24px rgba(56,42,31,0.15);
+    border-color:var(--candy-pink);
+  }
+
+  .gallery-item-image{
+    width:100%;
+    height:280px;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3rem;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .gallery-item-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .gallery-item-content{
+    padding:20px;
+  }
+
+  .gallery-item-title{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:1.2rem;
+    font-weight:700;
+    margin:0 0 8px;
+  }
+
+  .gallery-item-desc{
+    font-size:0.9rem;
+    color:var(--muted);
+    line-height:1.5;
+    margin:0 0 12px;
+  }
+
+  .gallery-item-tag{
+    display:inline-block;
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    text-transform:uppercase;
+    background:linear-gradient(135deg, rgba(255,107,157,0.1), rgba(217,70,166,0.1));
+    color:var(--candy-pink);
+    padding:4px 10px;
+    border-radius:4px;
+    font-weight:700;
+    margin-right:8px;
+  }
+
+  .modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    padding:20px;
+    overflow:auto;
+  }
+
+  .modal.active{ display:flex; align-items:center; justify-content:center; }
+
+  .modal-content{
+    background:var(--kraft);
+    padding:32px;
+    border-radius:12px;
+    max-width:600px;
+    width:100%;
+    position:relative;
+    animation:slideIn 0.3s ease;
+  }
+
+  @keyframes slideIn {
+    from { transform:translateY(-50px); opacity:0; }
+    to { transform:translateY(0); opacity:1; }
+  }
+
+  .modal-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    background:none;
+    border:none;
+    font-size:2rem;
+    cursor:pointer;
+    color:var(--ink);
+  }
+
+  .modal-image{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-bottom:20px;
+  }
+
+  .modal-title{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:1.8rem;
+    margin:0 0 12px;
+  }
+
+  .modal-desc{
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--muted);
+    margin:0;
+  }
+
+  footer{
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    border-top:3px solid var(--berry);
+    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+  }
+  .footer-contact{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .footer-contact a{
+    text-decoration:none;
+    transition:all .15s ease;
+    color:var(--muted);
+  }
+  .footer-contact a:hover{
+    color:var(--candy-pink);
+    font-weight:700;
+  }
+
+  .social-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:all .15s ease;
+  }
+
+  .social-logo{
+    width:18px;
+    height:18px;
+    display:block;
+  }
+
+  .social-link:hover .social-logo{
+    transform:scale(1.2);
+  }
+
+  .promo-banner{
+    background:linear-gradient(90deg, var(--candy-pink) 0%, var(--candy-purple) 50%, var(--candy-mint) 100%);
+    color:white;
+    padding:16px 32px;
+    text-align:center;
+    font-weight:700;
+    font-family:'Space Mono',monospace;
+    font-size:0.9rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    position:relative;
+    overflow:hidden;
+    z-index:100;
+  }
+
+  .promo-banner::before{
+    content:"🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉  •  🎉 10% OFF all orders placed before Rosh Hashana 🎉";
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    white-space:nowrap;
+    animation:scroll-banner 20s linear infinite;
+  }
+
+  @keyframes scroll-banner {
+    0% { transform:translateX(0) translateY(-50%); }
+    100% { transform:translateX(-33.33%) translateY(-50%); }
+  }
+
+  .promo-banner::after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:100px;
+    height:100%;
+    background:linear-gradient(90deg, transparent, var(--candy-pink), var(--candy-purple), var(--candy-mint));
+    pointer-events:none;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; animation:none !important; }
+  }
+
+  ::selection{ background:var(--candy-pink); color:white; }
+
+  :focus-visible{
+    outline:2px solid var(--candy-pink);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="promo-banner"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-slot">
+      <div class="logo-placeholder">LOGO</div>
+      <div class="brand">THE <span class="mark">VENDORZ</span></div>
+    </a>
+    <nav class="tabs">
+      <a href="index.html">Home</a>
+      <a href="bags.html">This Year's Bags</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-ghost" style="padding:8px 16px;">Get a Quote</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <div class="eyebrow">✨ See our work ✨</div>
+    <h1>Goodie Bags Gallery</h1>
+    <p>Browse photos and get inspired by last year's Simchat Torah goodie bag collections from shuls across Brooklyn.</p>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="wrap">
+    <h2 style="margin-top:0;">Past Collections</h2>
+    
+    <div class="gallery-grid">
+      <!-- Peckalach Examples -->
+      <div class="gallery-item" onclick="openModal(this)">
+        <div class="gallery-item-image">📦</div>
+        <div class="gallery-item-content">
+          <h3 class="gallery-item-title">Classic Peckalach</h3>
+          <p class="gallery-item-desc">Bright and colorful goodie bags packed with favorite treats</p>
+          <span class="gallery-item-tag">Peckalach</span>
+        </div>
+      </div>
+
+      <!-- Classic Examples -->
+      <div class="gallery-item" onclick="openModal(this)">
+        <div class="gallery-item-image">🎁</div>
+        <div class="gallery-item-content">
+          <h3 class="gallery-item-title">Classic Mix</h3>
+          <p class="gallery-item-desc">Perfectly balanced mix of snacks, candies, and a surprise prize</p>
+          <span class="gallery-item-tag">Classic</span>
+        </div>
+      </div>
+
+      <!-- Deluxe Examples -->
+      <div class="gallery-item" onclick="openModal(this)">
+        <div class="gallery-item-image">👑</div>
+        <div class="gallery-item-content">
+          <h3 class="gallery-item-title">Deluxe Presentation</h3>
+          <p class="gallery-item-desc">Premium drawstring bags with top-tier treats and toys</p>
+          <span class="gallery-item-tag">Deluxe</span>
+        </div>
+      </div>
+
+      <!-- Custom Options -->
+      <div class="gallery-item" onclick="openModal(this)">
+        <div class="gallery-item-image">🎨</div>
+        <div class="gallery-item-content">
+          <h3 class="gallery-item-title">Custom Branding</h3>
+          <p class="gallery-item-desc">Personalized bags with your shul's custom logo</p>
+          <span class="gallery-item-tag">Custom</span>
+        </div>
+      </div>
+
+      <!-- Bulk Order -->
+      <div class="gallery-item" onclick="openModal(this)">
+        <div class="gallery-item-image">📮</div>
+        <div class="gallery-item-content">
+          <h3 class="gallery-item-title">Bulk Delivery</h3>
+          <p class="gallery-item-desc">Organized and ready for your Simchat Torah celebration</p>
+          <span class="gallery-item-tag">Delivery</span>
+        </div>
+      </div>
+
+      <!-- Organza Add-ons -->
+      <div class="gallery-item" onclick="openModal(this)">
+        <div class="gallery-item-image">✨</div>
+        <div class="gallery-item-content">
+          <h3 class="gallery-item-title">Organza Add-Ons</h3>
+          <p class="gallery-item-desc">Elegant mesh bags with sweet treats inside</p>
+          <span class="gallery-item-tag">Add-On</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" style="border-bottom:3px solid var(--berry);">
+  <div class="wrap" style="text-align:center;">
+    <h2>Ready to Order?</h2>
+    <p style="color:var(--muted); margin-bottom:24px;">Let us pack goodie bags tailored to your shul's size and budget.</p>
+    <a href="bags.html" class="btn btn-primary">See This Year's Bags</a>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="gallery-item-image" id="modalImage" style="margin-bottom:20px;"></div>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <p class="modal-desc" id="modalDesc"></p>
+  </div>
+</div>
+
+<footer>
+  <div>© 2026 The Vendorz</div>
+  <div class="footer-contact">
+    <a href="tel:+16467701541">(646) 770-1541</a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://wa.me/16467701541" class="social-link" target="_blank">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="11" fill="#25D366"/>
+        <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <span style="color:var(--line);">—</span>
+    <a href="https://instagram.com/thevendorz" class="social-link" target="_blank">
+      <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#E1306C">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+      </svg>
+      <span>@thevendorz</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+function openModal(element) {
+  const title = element.querySelector('.gallery-item-title').textContent;
+  const desc = element.querySelector('.gallery-item-desc').textContent;
+  const emoji = element.querySelector('.gallery-item-image').textContent;
+
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalDesc').textContent = desc;
+  document.getElementById('modalImage').textContent = emoji;
+  document.getElementById('imageModal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('imageModal').classList.remove('active');
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('imageModal');
+  if (event.target === modal) {
+    modal.classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
