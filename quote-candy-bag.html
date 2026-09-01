@@ -322,7 +322,7 @@
 <script>
   // 1. Initialize EmailJS
   (function() {
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("S9GBrLHFP_VYD68RT");
   })();
 
   // Generate Unique Quote ID
@@ -336,7 +336,7 @@
     submitBtn.disabled = true;
     submitBtn.innerText = 'Sending Request...';
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('service_ljmyd45', 'template_2cadmvf', this)
       .then(function() {
         alert('Thank you! Your quote request has been sent successfully.');
         document.getElementById('quote-form').reset();
