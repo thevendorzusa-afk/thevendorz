@@ -557,8 +557,7 @@
   .promo-banner{
     background:linear-gradient(90deg, var(--candy-pink) 0%, var(--candy-purple) 50%, var(--candy-mint) 100%);
     color:white;
-    padding:16px 32px;
-    text-align:center;
+    padding:14px 0;
     font-weight:700;
     font-family:'Space Mono',monospace;
     font-size:0.9rem;
@@ -566,6 +565,27 @@
     position:relative;
     overflow:hidden;
     z-index:100;
+    white-space:nowrap;
+  }
+
+  .promo-track{
+    display:inline-block;
+    white-space:nowrap;
+    animation:marquee 18s linear infinite;
+  }
+
+  .promo-banner:hover .promo-track{
+    animation-play-state:paused;
+  }
+
+  .promo-content{
+    display:inline-block;
+    padding-right:50px;
+  }
+
+  @keyframes marquee{
+    0% { transform:translateX(0); }
+    100% { transform:translateX(-50%); }
   }
 
   @media (max-width:840px){
@@ -581,7 +601,14 @@
 </head>
 <body>
 
-<div class="promo-banner">🎉 10% OFF all orders placed before Rosh Hashana 🎉</div>
+<div class="promo-banner">
+  <div class="promo-track">
+    <span class="promo-content">🎉 10% OFF all orders placed before Rosh Hashana 🎉</span>
+    <span class="promo-content">🎉 10% OFF all orders placed before Rosh Hashana 🎉</span>
+    <span class="promo-content">🎉 10% OFF all orders placed before Rosh Hashana 🎉</span>
+    <span class="promo-content">🎉 10% OFF all orders placed before Rosh Hashana 🎉</span>
+  </div>
+</div>
 
 <header>
   <div class="header-inner">
