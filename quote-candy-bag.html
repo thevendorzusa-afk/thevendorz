@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vendorz — Candy Bag Quote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kraft: #EDE1BE;
+    --card: #F9F2DE;
+    --ink: #382A1F;
+    --berry: #8C2F39;
+    --mustard: #C98A2C;
+    --candy-pink: #FF6B9D;
+    --candy-lime: #A4D65E;
+    --candy-mint: #5ECCC0;
+    --candy-purple: #D946A6;
+    --muted: #8A7860;
+    --line: rgba(56,42,31,0.22);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--kraft);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  h1,h2,h3{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--kraft);
+    border-bottom:3px solid var(--berry);
+    box-shadow:0 2px 8px rgba(56,42,31,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .brand{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:1.25rem;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    text-decoration:none;
+  }
+  .brand .mark{
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  nav.tabs{
+    display:flex;
+    gap:2px;
+  }
+  nav.tabs a{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    text-decoration:none;
+    color:var(--muted);
+    padding:10px 14px;
+    transition:color .15s ease;
+    border-radius:3px;
+  }
+  nav.tabs a:hover{
+    color:var(--candy-pink);
+    background:rgba(255,107,157,0.1);
+  }
+  @media (max-width:720px){
+    nav.tabs{display:none;}
+  }
+
+  .wrap{
+    max-width:800px;
+    margin:0 auto;
+    padding:48px 32px 72px;
+  }
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--muted);
+    text-decoration:none;
+    margin-bottom:24px;
+    transition:color .15s ease;
+  }
+  .back-link:hover{ color:var(--candy-pink); }
+
+  .page-card{
+    background:#FFFBF2;
+    border:3px solid var(--candy-pink);
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(255,107,157,0.15);
+    position:relative;
+  }
+  .page-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0; height:8px;
+    background:linear-gradient(90deg, var(--candy-pink), var(--candy-purple));
+    border-radius:16px 16px 0 0;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    background:linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:8px;
+    display:block;
+    font-weight:700;
+  }
+  h1{
+    font-size:2.2rem;
+    margin:0 0 12px;
+  }
+  .lead{
+    font-size:1rem;
+    color:var(--ink);
+    line-height:1.6;
+    margin:0 0 32px;
+    font-weight:500;
+  }
+
+  .form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .full-width{
+    grid-column: span 2;
+  }
+  @media (max-width:600px){
+    .form-grid{ grid-template-columns:1fr; }
+    .full-width{ grid-column: span 1; }
+    .page-card{ padding:24px; }
+  }
+
+  .form-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  label{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:0.04em;
+    color:var(--ink);
+  }
+  input, select, textarea{
+    width:100%;
+    padding:12px 14px;
+    border:2px solid var(--line);
+    border-radius:8px;
+    background:rgba(255,255,255,0.9);
+    font-family:'Karla',sans-serif;
+    font-size:0.95rem;
+    color:var(--ink);
+    transition:border-color .15s ease;
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--candy-pink);
+    background:#FFF;
+  }
+
+  .btn-submit{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    padding:16px 24px;
+    margin-top:28px;
+    background:linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-purple) 100%);
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-family:'Space Mono',monospace;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(255,107,157,0.3);
+    transition:all .2s ease;
+  }
+  .btn-submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255,107,157,0.4);
+  }
+  .btn-submit:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+    transform:none;
+  }
+
+  footer{
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    border-top:3px solid var(--berry);
+    background:linear-gradient(90deg, rgba(255,107,157,0.05), rgba(164,214,94,0.05));
+  }
+  .footer-contact{
+    display:flex;
+    gap:16px;
+    align-items:center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand">THE <span class="mark">VENDORZ</span></a>
+    <nav class="tabs">
+      <a href="index.html">Home</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="index.html#candy-bags">Candy Bags</a>
+      <a href="index.html#organza-bags">Organza Bags</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a href="index.html" class="back-link">← Back to All Options</a>
+
+  <div class="page-card">
+    <span class="eyebrow">✨ Custom Add-On Quote</span>
+    <h1>Candy Bag Order</h1>
+    <p class="lead">Submit your details below to request a quote for individual custom Candy Bags ($5.00/bag • MOQ 50).</p>
+
+    <form id="quote-form">
+      <input type="hidden" name="quote_id" id="quote_id">
+      <input type="hidden" name="package_type" value="Candy Bag">
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="user_name">Full Name *</label>
+          <input type="text" id="user_name" name="user_name" required placeholder="Name">
+        </div>
+
+        <div class="form-group">
+          <label for="organization">Organization / Shul</label>
+          <input type="text" id="organization" name="organization" placeholder="Shul Name (Optional)">
+        </div>
+
+        <div class="form-group">
+          <label for="user_email">Email Address *</label>
+          <input type="email" id="user_email" name="user_email" required placeholder="email@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="user_phone">Phone Number *</label>
+          <input type="tel" id="user_phone" name="user_phone" required placeholder="(555) 555-5555">
+        </div>
+
+        <div class="form-group full-width">
+          <label for="quantity">Quantity (MOQ: 50) *</label>
+          <input type="number" id="quantity" name="quantity" min="50" value="50" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="notes">Special Requests / Notes</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Dietary preferences, custom mix requests, or event dates..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" id="submit-btn" class="btn-submit">Submit Quote Request</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div>© 2026 The Vendorz</div>
+  <div class="footer-contact">
+    <a href="tel:+16467701541" style="text-decoration:none; color:inherit;">(646) 770-1541</a>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // 1. Initialize EmailJS
+  (function() {
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+
+  // Generate Unique Quote ID
+  document.getElementById('quote_id').value = 'CB-' + Math.floor(100000 + Math.random() * 900000);
+
+  // 2. EmailJS Form Submit Handler
+  document.getElementById('quote-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Sending Request...';
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function() {
+        alert('Thank you! Your quote request has been sent successfully.');
+        document.getElementById('quote-form').reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit Quote Request';
+      }, function(error) {
+        alert('Failed to send request. Error: ' + JSON.stringify(error));
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit Quote Request';
+      });
+  });
+</script>
+
+</body>
+</html>
+
+```
